@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
+import { RecieveFinanzenService } from './recieve-finanzen.service';
 
 @Component({
   standalone: true,
@@ -9,4 +10,11 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'pmf-frontend';
+
+  finanzenService = inject(RecieveFinanzenService);
+
+  constructor() {
+    this.finanzenService.getEinnahmen();
+    this.finanzenService.getAusgaben();
+  }
 }
