@@ -1,12 +1,13 @@
 import { Component, inject, OnInit, signal, Signal } from '@angular/core';
-import { RecieveFinanzenService } from './recieve-finanzen.service';
+import { RecieveFinanzenService } from '../services/GetFinanzen/recieve-finanzen.service';
 import { Einnahmen } from 'src/model/einnahmen';
 import { Ausgaben } from 'src/model/ausgaben';
-import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
+import { FormsModule } from '@angular/forms';
+import { SetFinanzenService } from 'src/services/PostFinanzen/set-finanzen.service';
 
 @Component({
   standalone: true,
-  imports: [],
+  imports: [FormsModule],
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss',
@@ -14,22 +15,48 @@ import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 export class AppComponent implements OnInit {
   title = 'pmf-frontend';
 
-  finanzenService = inject(RecieveFinanzenService);
+  einnahmen: Einnahmen = { id: '', name: '', einnahme: '' };
+  ausgaben: Ausgaben = { id: '', name: '', ausgaben: '' };
+
+  getFinanzenService = inject(RecieveFinanzenService);
+  postFinanzenService = inject(SetFinanzenService);
 
   einnahmenList = signal<Einnahmen[]>([]);
   ausgabenList = signal<Ausgaben[]>([]);
 
   ngOnInit() {
-    this.finanzenService.getEinnahmen().subscribe((data) => {
+    this.getFinanzenService.getEinnahmen().subscribe((data) => {
       this.einnahmenList.update((values) => {
         return (values = data);
       });
     });
 
-    this.finanzenService.getEinnahmen().subscribe((data) => {
-      this.einnahmenList.update((values) => {
-        return (values = data);
+    this.getFinanzenService.getEinnahmen().subscribe(
+      (data) => {
+        this.einnahmenList.update((values) => {
+          console.log(values);
+          return (values = data);
+        });
+      },
+      (error) => {
+        console.error('Fehler beim Laden der Liste:', error);
+      }
+    );
+  }
+
+  addEinnahme() {
+    this.postFinanzenService
+      .postEinnahmen(this.einnahmen)
+      .subscribe((response) => {
+        console.log('Einnahme erfolgreich hinzugefügt:', response);
       });
-    });
+  }
+
+  addAusgaben() {
+    this.postFinanzenService
+      .postEinnahmen(this.einnahmen)
+      .subscribe((response) => {
+        console.log('Ausgabe erfolgreich hinzugefügt:', response);
+      });
   }
 }

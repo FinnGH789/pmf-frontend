@@ -1,5 +1,5 @@
 export interface Ausgaben {
-    id: number;
-    name: string;
-    ausgaben: number;
+  id: string;
+  name: string;
+  ausgaben: string;
 }

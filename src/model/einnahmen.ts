@@ -1,5 +1,5 @@
 export interface Einnahmen {
-    id: number;
-    name: string;
-    einnahme: number;
+  id: string;
+  name: string;
+  einnahme: string;
 }
