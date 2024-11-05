@@ -4,10 +4,11 @@ import { Einnahmen } from 'src/model/einnahmen';
 import { Ausgaben } from 'src/model/ausgaben';
 import { FormsModule } from '@angular/forms';
 import { SetFinanzenService } from 'src/services/PostFinanzen/set-finanzen.service';
+import { ChartComponent } from './chart/chart.component';
 
 @Component({
   standalone: true,
-  imports: [FormsModule],
+  imports: [FormsModule, ChartComponent],
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss',
