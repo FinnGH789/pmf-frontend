@@ -3,27 +3,27 @@ import { DestroyRef, inject, Injectable } from '@angular/core';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 import { catchError, Observable } from 'rxjs';
 import { Ausgaben } from 'src/model/ausgaben';
-import { Einnahmen } from 'src/model/einnahmen';
 
 @Injectable({
   providedIn: 'root',
 })
-export class SetFinanzenService {
+export class AusgabenService {
   httpClient = inject(HttpClient);
   destroyRef = inject(DestroyRef);
 
-  postEinnahmen(einnahmen: Einnahmen): Observable<Einnahmen> {
+  getAusgaben(): Observable<Ausgaben[]> {
     return this.httpClient
-      .post<Einnahmen>(`${'http://localhost:8080/addEinnahmen'}`, einnahmen)
-      .pipe(
-        takeUntilDestroyed(this.destroyRef),
-        catchError((error) => {
-          throw 'Fehler beim Hinzufügen der Einnahme: ' + error;
-        })
-      );
+      .get<Ausgaben[]>(`${'http://localhost:8080/ausgaben'}`)
+      .pipe(takeUntilDestroyed(this.destroyRef));
   }
 
-  postAusgaben(ausgaben: Ausgaben): Observable<Ausgaben> {
+  getTotalAusgaben() {
+    return this.httpClient
+      .get<Ausgaben>(`${'http://localhost:8080/totalAusgaben'}`)
+      .pipe(takeUntilDestroyed(this.destroyRef));
+  }
+
+  addAusgabe(ausgaben: Ausgaben): Observable<Ausgaben> {
     return this.httpClient
       .post<Ausgaben>(`${'http://localhost:8080/addAusgaben'}`, ausgaben)
       .pipe(
