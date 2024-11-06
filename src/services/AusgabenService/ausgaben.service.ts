@@ -18,9 +18,9 @@ export class AusgabenService {
       .pipe(takeUntilDestroyed(this.destroyRef));
   }
 
-  getTotalAusgaben() {
+  getTotalAusgaben(): Observable<number> {
     return this.httpClient
-      .get<Ausgaben>(Constants.getTotalAusgabenUrl)
+      .get<number>(Constants.getTotalAusgabenUrl)
       .pipe(takeUntilDestroyed(this.destroyRef));
   }
 

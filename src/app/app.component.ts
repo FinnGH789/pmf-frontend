@@ -32,6 +32,13 @@ export class AppComponent implements OnInit {
         return (values = data);
       });
     });
+
+    this.ausgabenService.getAusgaben().subscribe((data) => {
+      this.ausgabenList.update((values) => {
+        console.log(data)
+        return (values = data);
+      });
+    });
   }
 
   addEinnahme() {

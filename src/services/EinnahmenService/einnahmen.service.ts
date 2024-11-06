@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { DestroyRef, inject, Injectable } from '@angular/core';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
-import { catchError, Observable } from 'rxjs';
+import { catchError, Observable, take } from 'rxjs';
 import { Constants } from 'src/constants/constants';
 import { Einnahmen } from 'src/model/einnahmen';
 
@@ -18,10 +18,10 @@ export class EinnahmenService {
       .pipe(takeUntilDestroyed(this.destroyRef));
   }
 
-  getTotalEinnahmen() {
+  getTotalEinnahmen(): Observable<number> {
     return this.httpClient
-      .get<Einnahmen>(Constants.getTotalEinnahmenUrl)
-      .pipe(takeUntilDestroyed(this.destroyRef));
+      .get<number>(Constants.getTotalEinnahmenUrl)
+      .pipe(take(1));
   }
 
   addEinnahme(einnahmen: Einnahmen): Observable<Einnahmen> {
