@@ -3,13 +3,36 @@
 @import url('https://fonts.googleapis.com/css2?family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap');
 
 :root {
-    --clr-einnahmen: #83dc24;
-    --clr-ausgaben: #c83a33;
-    --clr-primary: #a4a3a0;
+    --clr-einnahmen: #0B9055;
+    --clr-einnahmen-accent: #DCFAE6;
+    --clr-ausgaben: #D92D20;
+    --clr-ausgaben-accent: #FEE4E2;
+    --clr-primary: #4f6eb6;
+    --clr-secondary: #9bb0e1;
+    --clr-accent: #5c83df;
+    --clr-grey: #ECEFF2;
+    --clr-font: #516778;
+    --clr-blueFont: #155EEF;
 }
 
-body {
+html, body, div, span, p, header, img {
     font-family: "Ubuntu", sans-serif;
     font-weight: 100;
     font-size: 1rem;
+    border: 0;
+    font-size: 100%;
+    vertical-align: baseline;
+    line-height: 1;
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+ol, ul {
+	list-style: none;
+}
+
+a {
+    text-decoration: none;
+    font-weight: 400;
 }

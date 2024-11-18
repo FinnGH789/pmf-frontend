@@ -19,8 +19,6 @@ export class ChartComponent implements OnInit {
   einnahmenTotal = signal<number>(0);
   ausgabenTotal = signal<number>(0);
 
-
-
   constructor() {
     Chart.register(...registerables);
   }

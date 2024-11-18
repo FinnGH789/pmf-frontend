@@ -5,10 +5,12 @@ import { FormsModule } from '@angular/forms';
 import { ChartComponent } from './chart/chart.component';
 import { EinnahmenService } from 'src/services/EinnahmenService/einnahmen.service';
 import { AusgabenService } from 'src/services/AusgabenService/ausgaben.service';
+import { HeaderComponent } from './header/header.component';
+import { NavbarComponent } from './navbar/navbar.component';
 
 @Component({
   standalone: true,
-  imports: [FormsModule, ChartComponent],
+  imports: [FormsModule, ChartComponent, HeaderComponent, NavbarComponent],
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss',

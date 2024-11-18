@@ -1,0 +1,74 @@
+header {
+    width: 100%;
+    border-bottom: 1px solid var(--clr-grey);
+}
+
+div {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 80%;
+    margin: auto;
+    background-color: var(--clr-white);
+}
+
+.icon-settings, .icon-user, .icon-bell {
+    max-width: 1.25vw;
+    margin-inline: 1em;
+    transition: 0.25s ease-in-out;
+    cursor: pointer;
+}
+
+li {
+    display: inline;
+}
+
+a {
+    max-width: 100%;
+    margin-inline: 1em;
+    padding: 0.65em;
+    border-radius: 0.4em;
+    cursor: pointer;
+    color: var(--clr-font);
+}
+
+a:hover {
+    background-color: var(--clr-grey);
+    color: var(--clr-blueFont);
+}
+
+.icon-settings:hover {
+    rotate: 90deg;
+}
+
+.icon-bell:hover {
+    animation: ring 5s;
+}
+
+@keyframes ring {
+    0% { transform: rotate(0); }
+    1% { transform: rotate(30deg); }
+    3% { transform: rotate(-28deg); }
+    5% { transform: rotate(34deg); }
+    7% { transform: rotate(-32deg); }
+    9% { transform: rotate(30deg); }
+    11% { transform: rotate(-28deg); }
+    13% { transform: rotate(26deg); }
+    15% { transform: rotate(-24deg); }
+    17% { transform: rotate(22deg); }
+    19% { transform: rotate(-20deg); }
+    21% { transform: rotate(18deg); }
+    23% { transform: rotate(-16deg); }
+    25% { transform: rotate(14deg); }
+    27% { transform: rotate(-12deg); }
+    29% { transform: rotate(10deg); }
+    31% { transform: rotate(-8deg); }
+    33% { transform: rotate(6deg); }
+    35% { transform: rotate(-4deg); }
+    37% { transform: rotate(2deg); }
+    39% { transform: rotate(-1deg); }
+    41% { transform: rotate(1deg); }
+    43% { transform: rotate(0); }
+    100% { transform: rotate(0); }
+  }
+
