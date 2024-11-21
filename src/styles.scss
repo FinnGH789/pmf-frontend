@@ -15,7 +15,7 @@
     --clr-blueFont: #155EEF;
 }
 
-html, body, div, span, p, header, img {
+html, body, div, p, header, img, ul{
     font-family: "Ubuntu", sans-serif;
     font-weight: 100;
     font-size: 1rem;
@@ -26,6 +26,7 @@ html, body, div, span, p, header, img {
     box-sizing: border-box;
     margin: 0;
     padding: 0;
+    scroll-behavior: smooth;
 }
 
 ol, ul {

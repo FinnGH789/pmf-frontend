@@ -1,19 +1,29 @@
 header {
     width: 100%;
     border-bottom: 1px solid var(--clr-grey);
+    padding: 1em 0em;
+    position: relative;
 }
 
-div {
+.flex-container {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    width: 80%;
+    width: 90%;
     margin: auto;
     background-color: var(--clr-white);
 }
 
+
+
+h1 {
+    color: var(--clr-blueFont);
+    margin: 0;
+}
+
+
 .icon-settings, .icon-user, .icon-bell {
-    max-width: 1.25vw;
+    max-width: 1.5em;
     margin-inline: 1em;
     transition: 0.25s ease-in-out;
     cursor: pointer;
@@ -72,3 +82,10 @@ a:hover {
     100% { transform: rotate(0); }
   }
 
+
+@media (max-width: 768px) {
+    .settingsBar {
+        display: none;
+    }
+    
+}
