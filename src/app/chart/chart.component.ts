@@ -4,11 +4,10 @@ import { AusgabenService } from 'src/services/AusgabenService/ausgaben.service';
 import { EinnahmenService } from 'src/services/EinnahmenService/einnahmen.service';
 
 @Component({
-  selector: 'app-chart',
-  standalone: true,
-  imports: [],
-  templateUrl: './chart.component.html',
-  styleUrls: ['./chart.component.css']
+    selector: 'app-chart',
+    imports: [],
+    templateUrl: './chart.component.html',
+    styleUrls: ['./chart.component.css']
 })
 export class ChartComponent implements OnInit {
   chart: any = [];

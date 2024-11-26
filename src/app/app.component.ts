@@ -9,11 +9,10 @@ import { HeaderComponent } from './header/header.component';
 import { NavbarComponent } from './navbar/navbar.component';
 
 @Component({
-  standalone: true,
-  imports: [FormsModule, ChartComponent, HeaderComponent, NavbarComponent],
-  selector: 'app-root',
-  templateUrl: './app.component.html',
-  styleUrl: './app.component.scss',
+    imports: [FormsModule, ChartComponent, HeaderComponent, NavbarComponent],
+    selector: 'app-root',
+    templateUrl: './app.component.html',
+    styleUrl: './app.component.scss'
 })
 export class AppComponent implements OnInit {
   title = 'pmf-frontend';

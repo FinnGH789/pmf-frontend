@@ -3,36 +3,85 @@
     <h1>EquiFi</h1>
     <nav>
       <ul class="navBar">
-        <li><a href="">Übersicht</a></li>
-        <li><a href="">Transaktionen</a></li>
-        <li><a href="">Analytics</a></li>
-        <li><a href="">Charts</a></li>
+        <li><a href=""></a>Übersicht</li>
+        <li><a href=""></a>Transaktionen</li>
+        <li><a href=""></a>Analytics</li>
+        <li><a href=""></a>Charts</li>
       </ul>
     </nav>
-    <nav>
-      <ul class="settingsBar">
-        <li>
-          <img
-            class="icon-settings"
-            src="settings.png"
-            alt="Click to open Settings"
-          />
-        </li>
-        <li>
-          <img
-            class="icon-bell"
-            src="bell.png"
-            alt="Click to open Account Reference"
-          />
-        </li>
-        <li>
-          <img
-            class="icon-user"
-            src="user.png"
-            alt="Click to open Account Reference"
-          />
-        </li>
-      </ul>
-    </nav>
+    @if (currentWindowWidth! >= 768) {
+      <nav>
+        <ul class="settingsBar">
+          <li>
+            <img
+              class="icon-settings"
+              src="settings.png"
+              alt="Click to open Settings"
+            />
+          </li>
+          <li>
+            <img
+              class="icon-bell"
+              src="bell.png"
+              alt="Click to open Account Reference"
+            />
+          </li>
+          <li>
+            <img
+              class="icon-user"
+              src="user.png"
+              alt="Click to open Account Reference"
+            />
+          </li>
+        </ul>
+      </nav>
+    } @else if (currentWindowWidth! < 768) {
+      <nav class="expandedSettingsBar_Container">
+        <ul>
+          <li class="user">
+            <img
+              class="icon-user"
+              src="user.png"
+              alt="Click to open Account Reference"
+              (click)="
+                this.collapsed === false
+                  ? (this.collapsed = true)
+                  : (this.collapsed = false)
+              "
+            />
+          </li>
+          @if (collapsed) {
+            <div class="expandedSettingsBar">
+              <ul class="menue_container">
+                <li>
+                  <img
+                    class="icon-user"
+                    src="user.png"
+                    alt="Click to open Account Reference"
+                  />
+                  <a href=""></a>Account
+                </li>
+                <li>
+                  <img
+                    class="icon-settings"
+                    src="settings.png"
+                    alt="Click to open Account Reference"
+                  />
+                  <a href=""></a>Settings
+                </li>
+                <li>
+                  <img
+                  class="icon-bell"
+                  src="bell.png"
+                  alt="Click to open Account Reference"
+                />
+                  <a href=""></a>Notifications
+                </li>
+              </ul>
+            </div>
+          }
+        </ul>
+      </nav>
+    }
   </div>
 </header>
