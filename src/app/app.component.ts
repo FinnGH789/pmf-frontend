@@ -7,9 +7,11 @@ import { EinnahmenService } from 'src/services/EinnahmenService/einnahmen.servic
 import { AusgabenService } from 'src/services/AusgabenService/ausgaben.service';
 import { HeaderComponent } from './header/header.component';
 import { NavbarComponent } from './navbar/navbar.component';
+import { FinanceCardComponent } from './finance-card/finance-card.component';
+import { FinanceSummaryComponent } from './finance-summary/finance-summary.component';
 
 @Component({
-    imports: [FormsModule, ChartComponent, HeaderComponent, NavbarComponent],
+    imports: [FormsModule, ChartComponent, HeaderComponent, NavbarComponent, FinanceCardComponent, FinanceSummaryComponent],
     selector: 'app-root',
     templateUrl: './app.component.html',
     styleUrl: './app.component.scss'

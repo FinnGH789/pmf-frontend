@@ -1,0 +1,30 @@
+<section>
+    <h1>Hello, {{ 'User' }}!</h1>
+    <div class="select_period">
+      <input type="button" value="Dieser Monat" />
+      <input type="button" value="Letzter Monat" />
+      <input type="button" value="Dieses Jahr" />
+      <input type="button" value="Letzten 12 Monate" />
+    </div>
+    <div class="choosePeriod">
+      <input type="button" value="Wähle Zeitraum" />
+    </div>
+  </section>
+
+<section>
+  <app-finance-card>
+    <h2 class="financeCard_title">Balance</h2>
+    <p id="balance" class="financeCard_value">$5,502.45</p>
+    <p class="financeCard_course"> 12,5%</p>
+  </app-finance-card>
+  <app-finance-card>
+    <h3 class="financeCard_title">Einnahmen</h3>
+    <p id="einnahmen" class="financeCard_value">{{ '$9,540.00' }}</p>
+    <p class="financeCard_course"> 12,5%</p>
+  </app-finance-card>
+  <app-finance-card>
+    <h4 class="financeCard_title">Ausgaben</h4>
+    <p id="ausgaben" class="financeCard_value">{{ '$3,945.55' }}</p>
+    <p class="financeCard_course"> 12,5%</p>
+  </app-finance-card>
+</section>

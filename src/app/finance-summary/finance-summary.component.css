@@ -1,0 +1,78 @@
+section {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 90%;
+    margin-inline: auto;
+    margin-block: 1.25em;
+}
+
+h1 {
+    font-weight: 400;
+}
+
+.select_period {
+    border: 1.5px solid #ECEFF2;
+    border-radius: 7.5px;
+}
+
+.select_period > input[type="button"]:nth-child(-n + 3) {
+    border-right: 1.5px solid #ECEFF2;
+}
+
+.choosePeriod {
+    min-width: 125px;
+}
+
+.choosePeriod > input[type="button"] {
+    border: 1.5px solid #ECEFF2;
+}
+
+input[type="button"] {
+    background-color: white;
+    border: none;
+    max-width: 100%;
+    padding: 0.65em;
+    border-radius: 5px;
+    cursor: pointer;
+    color: var(--clr-font);
+}
+
+input[type="button"]:hover {
+    background-color: var(--clr-secondary);
+    color: var(--clr-blueFont);
+  }
+
+.financeCard_title {
+    align-self: center;
+    grid-area: 1 / 1 / 2 / 3;
+    margin: 0;
+}
+
+.financeCard_value {
+    grid-area: 2 / 1 / 3 / 2;
+}
+
+.financeCard_course {
+    grid-area: 2 / 2 / 3 / 3;
+    place-self: end;
+    border: 1.5px solid #ECEFF2;
+    border-radius: 7.5px;
+    padding: 0.35em;
+    font-size: 0.85rem;
+}
+
+#balance {
+    color: var(--clr-blueFont);
+    font-size: 1.75rem;
+}
+
+#einnahmen {
+    color: var(--clr-einnahmen);
+    font-size: 1.75rem;
+}
+
+#ausgaben {
+    color: var(--clr-ausgaben);
+    font-size: 1.75rem;
+}
