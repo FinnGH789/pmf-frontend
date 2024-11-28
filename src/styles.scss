@@ -1,6 +1,7 @@
 /* You can add global styles to this file, and also import other style files */
 
 @import url('https://fonts.googleapis.com/css2?family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap');
 
 :root {
     --clr-einnahmen: #0B9055;
@@ -13,9 +14,11 @@
     --clr-grey: #ECEFF2;
     --clr-font: #516778;
     --clr-blueFont: #155EEF;
+    --box-border: 1.5px solid var(--clr-grey);
+    --box-radius: 7.5px;
 }
 
-html, body, div, p, header, img, ul, h1, h2, h3, h4{
+html, body, div,  header, img, ul {
     font-family: "Ubuntu", sans-serif;
     font-weight: 100;
     font-size: 1rem;
@@ -29,9 +32,12 @@ html, body, div, p, header, img, ul, h1, h2, h3, h4{
     scroll-behavior: smooth;
 }
 
-/* Nur für Übersichts-Zwecke */
-body {
-    margin-bottom: 3.5em;
+h1, h2, h3, h4, h5, h6 {
+    font-family: "inter", serif;
+    font-size: 1.25rem;
+    font-weight: 400;
+    margin: 0;
+    padding: 0;
 }
 
 ol, ul {
@@ -41,4 +47,9 @@ ol, ul {
 a, li {
     text-decoration: none;
     font-weight: 400;
+}
+
+/* Nur für Übersichts-Zwecke */
+body {
+    margin-bottom: 3.5em;
 }
