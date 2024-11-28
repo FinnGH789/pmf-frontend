@@ -1,8 +1,8 @@
 .financeCard_container {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
-    border: 1.5px solid #ECEFF2;
-    border-radius: 7.5px;
+    border: var(--box-border);
+    border-radius: var(--box-radius);
     padding: 1em;
     width: 29em;
     height: 6.5em;

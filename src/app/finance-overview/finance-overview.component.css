@@ -1,0 +1,51 @@
+.grid_container {
+    display: grid;
+    grid-template-columns: 37.5% 1fr;
+    max-width: 90%;
+    margin-inline: auto;
+    gap: 3.5em;
+}
+
+.chart_overview {
+    border-radius: var(--box-radius);
+    border: var(--box-border);
+    padding: 1.5em;
+}
+
+.chart {
+    margin-block: 1em;
+}
+
+table {
+    border-collapse: collapse;
+    width: 100%;
+    margin-top: 2.5em;
+}
+
+td {
+    border-bottom: var(--box-border);
+    text-align: left;
+    padding: 0.75em;
+}
+
+th {
+    font-weight: 200;
+    background-color: var(--clr-grey);
+    text-align: start;
+    padding: 1em 0.75em;
+}
+
+.finance_history {
+    border-radius: var(--box-radius);
+    border: var(--box-border);
+    padding: 1.5em;
+    padding-inline: 0;
+}
+
+.finance_history > h2, p {
+    padding: 0.25em 1em;
+}
+
+.icon_more {
+    cursor: pointer;
+}
