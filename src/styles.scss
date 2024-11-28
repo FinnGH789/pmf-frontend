@@ -29,6 +29,11 @@ html, body, div, p, header, img, ul, h1, h2, h3, h4{
     scroll-behavior: smooth;
 }
 
+/* Nur für Übersichts-Zwecke */
+body {
+    margin-bottom: 3.5em;
+}
+
 ol, ul {
 	list-style: none;
 }

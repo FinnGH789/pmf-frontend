@@ -9,9 +9,10 @@ import { HeaderComponent } from './header/header.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { FinanceCardComponent } from './finance-card/finance-card.component';
 import { FinanceSummaryComponent } from './finance-summary/finance-summary.component';
+import { FinanceOverviewComponent } from './finance-overview/finance-overview.component';
 
 @Component({
-    imports: [FormsModule, ChartComponent, HeaderComponent, NavbarComponent, FinanceCardComponent, FinanceSummaryComponent],
+    imports: [FormsModule, HeaderComponent, FinanceSummaryComponent, FinanceOverviewComponent],
     selector: 'app-root',
     templateUrl: './app.component.html',
     styleUrl: './app.component.scss'

@@ -18,6 +18,7 @@ h1 {
 
 .select_period > input[type="button"]:nth-child(-n + 3) {
     border-right: 1.5px solid #ECEFF2;
+    border-radius: 0;
 }
 
 .choosePeriod {
@@ -75,4 +76,37 @@ input[type="button"]:hover {
 #ausgaben {
     color: var(--clr-ausgaben);
     font-size: 1.75rem;
+}
+
+.einnahmen_container, .ausgaben_container {
+    display: flex;
+    border: 1.5px solid #ECEFF2;
+    border-radius: 7.5px;
+    width: 47.5%;
+    gap: 1.5em;
+    padding: 1em;
+}
+
+.icon_container_einnahmen {
+    background-color: var(--clr-einnahmen-accent);
+    border-radius: 7.5px;
+    padding: 1em;
+}
+
+.icon_container_ausgaben {
+    background-color: var(--clr-ausgaben-accent);
+    border-radius: 7.5px;
+    padding: 1em;
+}
+
+.add_finance {
+    align-self: center;
+}
+
+.add_finance > p {
+    margin-block: 0.2em;
+}
+
+.add_finance_title {
+    font-weight: 400;
 }

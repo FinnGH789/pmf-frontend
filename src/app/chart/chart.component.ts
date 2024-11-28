@@ -32,7 +32,7 @@ export class ChartComponent implements OnInit {
     this.chart = new Chart('canvas', {
       type: 'doughnut',
       data: {
-        labels: ['Einnahmen', 'Ausgaben',],
+        labels: [],
         datasets: [
           {
             data: [this.einnahmenTotal(), this.ausgabenTotal()],
