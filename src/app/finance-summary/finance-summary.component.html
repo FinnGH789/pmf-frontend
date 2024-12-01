@@ -14,17 +14,17 @@
 <section>
   <app-finance-card>
     <p class="financeCard_title">Balance</p>
-    <h2 id="balance" class="financeCard_value">$5,502.45</h2>
+    <h2 id="balance" class="financeCard_value">{{ balance() + '€' }}</h2>
     <p class="financeCard_course">12,5%</p>
   </app-finance-card>
   <app-finance-card>
     <p class="financeCard_title">Einnahmen</p>
-    <h3 id="einnahmen" class="financeCard_value">{{ '$9,540.00' }}</h3>
+    <h3 id="einnahmen" class="financeCard_value">{{ totalEinnahmen() + '€' }}</h3>
     <p class="financeCard_course">12,5%</p>
   </app-finance-card>
   <app-finance-card>
     <p class="financeCard_title">Ausgaben</p>
-    <h4 id="ausgaben" class="financeCard_value">{{ '$3,945.55' }}</h4>
+    <h4 id="ausgaben" class="financeCard_value">{{ totalAusgaben() + '€' }}</h4>
     <p class="financeCard_course">12,5%</p>
   </app-finance-card>
 </section>

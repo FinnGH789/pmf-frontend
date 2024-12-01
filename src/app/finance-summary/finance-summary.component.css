@@ -87,16 +87,19 @@ input[type="button"]:hover {
     padding: 1em;
 }
 
-.icon_container_einnahmen {
-    background-color: var(--clr-einnahmen-accent);
+.icon_container_einnahmen, .icon_container_ausgaben {
     border-radius: 7.5px;
     padding: 1em;
+    transition: all 0.2s ease-in-out;
+    cursor: pointer;
+}
+
+.icon_container_einnahmen {
+    background-color: var(--clr-einnahmen-accent);
 }
 
 .icon_container_ausgaben {
     background-color: var(--clr-ausgaben-accent);
-    border-radius: 7.5px;
-    padding: 1em;
 }
 
 .add_finance {
@@ -109,4 +112,9 @@ input[type="button"]:hover {
 
 .add_finance_title {
     font-weight: 400;
+}
+
+.icon_container_ausgaben:hover, .icon_container_einnahmen:hover {
+    transform: scale(1.1);
+    transition: all 0.2s ease-in-out;
 }

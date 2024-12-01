@@ -1,7 +1,7 @@
 .grid_container {
-    display: grid;
-    grid-template-columns: 37.5% 1fr;
+    display: flex;
     max-width: 90%;
+    max-height: 38.5em;
     margin-inline: auto;
     gap: 3.5em;
 }
@@ -10,6 +10,7 @@
     border-radius: var(--box-radius);
     border: var(--box-border);
     padding: 1.5em;
+    min-width: 32%;
 }
 
 .chart {
@@ -38,8 +39,10 @@ th {
 .finance_history {
     border-radius: var(--box-radius);
     border: var(--box-border);
-    padding: 1.5em;
-    padding-inline: 0;
+    padding: 1.5em 0 0 0;
+    width: 100%;
+    overflow-y: scroll;
+    scrollbar-color: var(--clr-grey) transparent;
 }
 
 .finance_history > h2, p {

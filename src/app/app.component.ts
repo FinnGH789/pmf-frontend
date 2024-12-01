@@ -1,13 +1,10 @@
-import { Component, inject, OnInit, signal, Signal } from '@angular/core';
+import { Component, inject, OnInit, signal } from '@angular/core';
 import { Einnahmen } from 'src/model/einnahmen';
 import { Ausgaben } from 'src/model/ausgaben';
 import { FormsModule } from '@angular/forms';
-import { ChartComponent } from './chart/chart.component';
 import { EinnahmenService } from 'src/services/EinnahmenService/einnahmen.service';
 import { AusgabenService } from 'src/services/AusgabenService/ausgaben.service';
 import { HeaderComponent } from './header/header.component';
-import { NavbarComponent } from './navbar/navbar.component';
-import { FinanceCardComponent } from './finance-card/finance-card.component';
 import { FinanceSummaryComponent } from './finance-summary/finance-summary.component';
 import { FinanceOverviewComponent } from './finance-overview/finance-overview.component';
 
@@ -17,7 +14,7 @@ import { FinanceOverviewComponent } from './finance-overview/finance-overview.co
     templateUrl: './app.component.html',
     styleUrl: './app.component.scss'
 })
-export class AppComponent implements OnInit {
+export class AppComponent {
   title = 'pmf-frontend';
 
   einnahmen: Einnahmen = { id: '', name: '', einnahme: '' };
@@ -29,6 +26,7 @@ export class AppComponent implements OnInit {
   einnahmenList = signal<Einnahmen[]>([]);
   ausgabenList = signal<Ausgaben[]>([]);
 
+  /* 
   ngOnInit() {
     this.einnahmenService.getEinnahmen().subscribe((data) => {
       this.einnahmenList.update((values) => {
@@ -44,6 +42,7 @@ export class AppComponent implements OnInit {
       });
     });
   }
+    */
 
   addEinnahme() {
     this.einnahmenService

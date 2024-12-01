@@ -44,12 +44,14 @@
           <th>Betrag</th>
           <th></th>
       </tr>
-      <tr>
-        <td>{{ 'Value_here' }}</td>
-        <td>{{ 'Value_here' }}</td>
-        <td>{{ 'Value_here' }}</td>
+      @for (einnahmen of einnahmenList(); track $index) {
+      <tr> 
+        <td>{{ einnahmen.name }}</td>
+        <td>{{ 'Kreditkarte' }}</td>
+        <td>{{ einnahmen.einnahme + '€' }}</td>
         <td><img class="icon_more" src="more.png" alt="Transaktionen erweiterte Einstellungen"></td>
       </tr> 
+    }
     </table>
   </section>
 </summary>
