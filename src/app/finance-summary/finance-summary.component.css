@@ -118,3 +118,33 @@ input[type="button"]:hover {
     transform: scale(1.1);
     transition: all 0.2s ease-in-out;
 }
+
+.addEinnahmenWindow {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    position: absolute;
+    top: 35%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    height: 15em;
+    width: 50em;
+    border: var(--box-border);
+    border-radius: var(--box-radius);
+    background-color: white;
+    padding: 1.5em;
+}
+
+.addEinnahmenWindow > div {
+    display: flex;
+    flex-direction: column;
+} 
+
+input {
+    margin-block: 0.5em;
+}
+
+.close {
+    justify-self: end;
+    margin: 0;
+    cursor: pointer;
+}

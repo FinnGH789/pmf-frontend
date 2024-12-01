@@ -1,11 +1,20 @@
-import { Component, computed, inject, linkedSignal, OnInit, signal } from '@angular/core';
+import {
+  Component,
+  inject,
+  linkedSignal,
+  OnInit,
+  signal,
+} from '@angular/core';
 import { FinanceCardComponent } from '../finance-card/finance-card.component';
 import { EinnahmenService } from 'src/services/EinnahmenService/einnahmen.service';
 import { AusgabenService } from 'src/services/AusgabenService/ausgaben.service';
+import { Einnahmen } from 'src/model/einnahmen';
+import { Ausgaben } from 'src/model/ausgaben';
+import { FormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-finance-summary',
-  imports: [FinanceCardComponent],
+  imports: [FinanceCardComponent, FormsModule],
   templateUrl: './finance-summary.component.html',
   styleUrl: './finance-summary.component.css',
 })
@@ -15,8 +24,21 @@ export class FinanceSummaryComponent implements OnInit {
 
   totalEinnahmen = signal<number>(0);
   totalAusgaben = signal<number>(0);
-  balance = linkedSignal(() => this.totalEinnahmen() - this.totalAusgaben())
+  balance = linkedSignal(() => this.totalEinnahmen() - this.totalAusgaben());
 
+  addEinnahmenWindow: boolean = false;
+
+  ausgabe: Ausgaben = {
+    id: '1',
+    name: 'Miete',
+    ausgaben: '1200',
+  };
+
+  test: Einnahmen = {
+    id: '',
+    name: '',
+    einnahme: '',
+  };
 
   ngOnInit(): void {
     this.einnahmenService.getTotalEinnahmen().subscribe((value) => {
@@ -26,6 +48,9 @@ export class FinanceSummaryComponent implements OnInit {
     this.ausgabenService.getTotalAusgaben().subscribe((value) => {
       return this.totalAusgaben.set(value);
     });
+  }
 
+  addEinnahmen(test: Einnahmen) {
+    return this.einnahmenService.addEinnahme(test).subscribe();
   }
 }
