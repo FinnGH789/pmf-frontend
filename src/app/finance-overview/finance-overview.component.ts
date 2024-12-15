@@ -13,9 +13,6 @@ import { EinnahmenService } from 'src/services/EinnahmenService/einnahmen.servic
 })
 export class FinanceOverviewComponent {
 
-  einnahmen: Einnahmen = { id: '', name: '', einnahme: '' };
-  ausgaben: Ausgaben = { id: '', name: '', ausgaben: '' };
-
   einnahmenService = inject(EinnahmenService);
   ausgabenService = inject(AusgabenService);
 

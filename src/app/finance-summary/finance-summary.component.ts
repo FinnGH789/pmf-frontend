@@ -1,8 +1,10 @@
 import {
   Component,
+  computed,
   inject,
   linkedSignal,
   OnInit,
+  Signal,
   signal,
 } from '@angular/core';
 import { FinanceCardComponent } from '../finance-card/finance-card.component';
@@ -19,26 +21,20 @@ import { FormsModule } from '@angular/forms';
   styleUrl: './finance-summary.component.css',
 })
 export class FinanceSummaryComponent implements OnInit {
+
   einnahmenService = inject(EinnahmenService);
   ausgabenService = inject(AusgabenService);
 
   totalEinnahmen = signal<number>(0);
   totalAusgaben = signal<number>(0);
-  balance = linkedSignal(() => this.totalEinnahmen() - this.totalAusgaben());
+  cashBalance = computed(() => this.totalEinnahmen() - this.totalAusgaben());
 
   addEinnahmenWindow: boolean = false;
+  addAusgabenWindow: boolean = false;
 
-  ausgabe: Ausgaben = {
-    id: '1',
-    name: 'Miete',
-    ausgaben: '1200',
-  };
+  einnahme = new Einnahmen();
+  ausgabe = new Ausgaben()
 
-  test: Einnahmen = {
-    id: '',
-    name: '',
-    einnahme: '',
-  };
 
   ngOnInit(): void {
     this.einnahmenService.getTotalEinnahmen().subscribe((value) => {
@@ -50,7 +46,11 @@ export class FinanceSummaryComponent implements OnInit {
     });
   }
 
-  addEinnahmen(test: Einnahmen) {
-    return this.einnahmenService.addEinnahme(test).subscribe();
+  addEinnahmen(einnahme: Einnahmen) {
+    return this.einnahmenService.addEinnahme(einnahme).subscribe();
+  }
+
+  addAusgaben(ausgabe: Ausgaben) {
+    return this.ausgabenService.addAusgabe(ausgabe).subscribe();
   }
 }

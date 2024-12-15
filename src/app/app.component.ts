@@ -17,8 +17,6 @@ import { FinanceOverviewComponent } from './finance-overview/finance-overview.co
 export class AppComponent {
   title = 'pmf-frontend';
 
-  einnahmen: Einnahmen = { id: '', name: '', einnahme: '' };
-  ausgaben: Ausgaben = { id: '', name: '', ausgaben: '' };
 
   einnahmenService = inject(EinnahmenService);
   ausgabenService = inject(AusgabenService);
@@ -44,6 +42,7 @@ export class AppComponent {
   }
     */
 
+  /*
   addEinnahme() {
     this.einnahmenService
       .addEinnahme(this.einnahmen)
@@ -59,4 +58,5 @@ export class AppComponent {
         console.log('Ausgabe erfolgreich hinzugefügt:', response);
       });
   }
+  */
 }

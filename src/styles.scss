@@ -3,6 +3,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap');
 
+
 :root {
     --clr-einnahmen: #0B9055;
     --clr-einnahmen-accent: #DCFAE6;
@@ -52,4 +53,10 @@ a, li {
 /* Nur für Übersichts-Zwecke */
 body {
     margin-bottom: 3.5em;
+}
+
+input[type="text"] {
+    border: 1px solid red;
+    border-radius: var(--box-radius);
+    padding: 0.5em;
 }
