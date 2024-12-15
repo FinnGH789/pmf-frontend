@@ -1,5 +1,5 @@
-export interface Ausgaben {
-  id: string;
-  name: string;
-  ausgaben: string;
+export class Ausgaben {
+  id?: string;
+  name?: string;
+  ausgabe?: string;
 }

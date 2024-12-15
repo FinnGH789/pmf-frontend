@@ -9,8 +9,9 @@ import { Einnahmen } from 'src/model/einnahmen';
   providedIn: 'root',
 })
 export class EinnahmenService {
-  httpClient = inject(HttpClient);
-  destroyRef = inject(DestroyRef);
+
+  private httpClient = inject(HttpClient);
+  private destroyRef = inject(DestroyRef);
 
   getEinnahmen(): Observable<Einnahmen[]> {
     return this.httpClient

@@ -53,3 +53,9 @@ a, li {
 body {
     margin-bottom: 3.5em;
 }
+
+input[type="text"] {
+    border: 1px solid red;
+    border-radius: var(--box-radius);
+    padding: 0.5em;
+}

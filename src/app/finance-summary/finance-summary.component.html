@@ -14,24 +14,26 @@
 <section>
   <app-finance-card>
     <p class="financeCard_title">Balance</p>
-    <h2 id="balance" class="financeCard_value">$5,502.45</h2>
+    <h2 id="balance" class="financeCard_value">{{ cashBalance() + '€' }}</h2>
     <p class="financeCard_course">12,5%</p>
   </app-finance-card>
   <app-finance-card>
     <p class="financeCard_title">Einnahmen</p>
-    <h3 id="einnahmen" class="financeCard_value">{{ '$9,540.00' }}</h3>
+    <h3 id="einnahmen" class="financeCard_value">
+      {{ totalEinnahmen() + '€' }}
+    </h3>
     <p class="financeCard_course">12,5%</p>
   </app-finance-card>
   <app-finance-card>
     <p class="financeCard_title">Ausgaben</p>
-    <h4 id="ausgaben" class="financeCard_value">{{ '$3,945.55' }}</h4>
+    <h4 id="ausgaben" class="financeCard_value">{{ totalAusgaben() + '€' }}</h4>
     <p class="financeCard_course">12,5%</p>
   </app-finance-card>
 </section>
 
 <section>
   <div class="einnahmen_container">
-    <div class="icon_container_einnahmen">
+    <div class="icon_container_einnahmen" (click)="addEinnahmenWindow = true" v>
       <img src="add.png" alt="" />
     </div>
     <div class="add_finance">
@@ -49,3 +51,36 @@
     </div>
   </div>
 </section>
+
+@if (addEinnahmenWindow) {
+  <div class="addEinnahmenWindow">
+    <h1>Fügen Sie ihre Einnahme hinzu!</h1>
+    <img
+      class="close"
+      src="close.png"
+      alt=""
+      (click)="addEinnahmenWindow = false"
+    />
+    <div>
+      <input
+        type="text"
+        value=""
+        placeholder="Grund"
+        [(ngModel)]="einnahme.name"
+      />
+      <input
+        type="text"
+        value=""
+        placeholder="Betrag"
+        [(ngModel)]="einnahme.einnahme"
+      />
+      <input
+        type="text"
+        value=""
+        placeholder="z.B. Bank-Transaktion"
+        [(ngModel)]="einnahme.id"
+      />
+    </div>
+    <input type="button" value="Enter" (click)="addEinnahmen(einnahme)" />
+  </div>
+}

@@ -11,6 +11,8 @@ node_modules
 # IDEs and editors
 /.idea
 .project
+.vscode
+.github/workflows
 .classpath
 .c9/
 *.launch
