@@ -44,7 +44,7 @@
           <th>Betrag</th>
           <th></th>
       </tr>
-      @for (einnahmen of einnahmenList(); track $index) {
+      @for (einnahmen of totalEinnahmenList.value(); track $index) {
       <tr> 
         <td>{{ einnahmen.name }}</td>
         <td>{{ 'Kreditkarte' }}</td>

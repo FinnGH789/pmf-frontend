@@ -2,16 +2,11 @@ import {
   Component,
   computed,
   inject,
-  OnInit,
   resource,
-  Signal,
-  signal,
 } from '@angular/core';
 import { FinanceCardComponent } from '../finance-card/finance-card.component';
 import { EinnahmenService } from 'src/services/EinnahmenService/einnahmen.service';
 import { AusgabenService } from 'src/services/AusgabenService/ausgaben.service';
-import { Einnahmen } from 'src/model/einnahmen';
-import { Ausgaben } from 'src/model/ausgaben';
 import { FormsModule } from '@angular/forms';
 import { FinanceSummateComponent } from '../finance-summate/finance-summate.component';
 import { Constants } from 'src/constants/constants';

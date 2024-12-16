@@ -1,9 +1,10 @@
-import { Component, inject, signal } from '@angular/core';
+import { Component, inject, resource, signal } from '@angular/core';
 import { ChartComponent } from '../chart/chart.component';
 import { AusgabenService } from 'src/services/AusgabenService/ausgaben.service';
 import { Einnahmen } from 'src/model/einnahmen';
 import { Ausgaben } from 'src/model/ausgaben';
 import { EinnahmenService } from 'src/services/EinnahmenService/einnahmen.service';
+import { Constants } from 'src/constants/constants';
 
 @Component({
   selector: 'app-finance-overview',
@@ -16,22 +17,19 @@ export class FinanceOverviewComponent {
   einnahmenService = inject(EinnahmenService);
   ausgabenService = inject(AusgabenService);
 
-  einnahmenList = signal<Einnahmen[]>([]);
-  ausgabenList = signal<Ausgaben[]>([]);
 
-  ngOnInit() {
-    this.einnahmenService.getEinnahmen().subscribe((data) => {
-      this.einnahmenList.update((values) => {
-        console.log(data)
-        return (values = data);
-      });
+    totalEinnahmenList = resource({
+      loader: async () => {
+        const res = await fetch(Constants.getEinnahmenUrl);
+        return await res.json();
+      },
+    });
+  
+    totalAusgabenList = resource({
+      loader: async () => {
+        const res = await fetch(Constants.getAusgabenUrl);
+        return await res.json();
+      },
     });
 
-    this.ausgabenService.getAusgaben().subscribe((data) => {
-      this.ausgabenList.update((values) => {
-        console.log(data)
-        return (values = data);
-      });
-    });
-  }
 }
