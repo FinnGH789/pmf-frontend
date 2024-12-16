@@ -78,72 +78,10 @@ input[type="button"]:hover {
     font-size: 1.75rem;
 }
 
-.einnahmen_container, .ausgaben_container {
-    display: flex;
-    border: 1.5px solid #ECEFF2;
-    border-radius: 7.5px;
-    width: 47.5%;
-    gap: 1.5em;
-    padding: 1em;
-}
-
-.icon_container_einnahmen, .icon_container_ausgaben {
-    border-radius: 7.5px;
-    padding: 1em;
-    transition: all 0.2s ease-in-out;
-    cursor: pointer;
-}
-
-.icon_container_einnahmen {
-    background-color: var(--clr-einnahmen-accent);
-}
-
-.icon_container_ausgaben {
-    background-color: var(--clr-ausgaben-accent);
-}
-
-.add_finance {
-    align-self: center;
-}
-
-.add_finance > p {
-    margin-block: 0.2em;
-}
-
-.add_finance_title {
-    font-weight: 400;
-}
-
-.icon_container_ausgaben:hover, .icon_container_einnahmen:hover {
-    transform: scale(1.1);
-    transition: all 0.2s ease-in-out;
-}
-
-.addEinnahmenWindow {
+.container_summate {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
-    position: absolute;
-    inset: 35% 0% 0% 50%;
-    transform: translate(-50%, -50%);
-    height: 15em;
-    width: 50em;
-    border: var(--box-border);
-    border-radius: var(--box-radius);
-    background-color: white;
-    padding: 1.5em;
-}
-
-.addEinnahmenWindow > div {
-    display: flex;
-    flex-direction: column;
-} 
-
-input {
-    margin-block: 0.5em;
-}
-
-.close {
-    justify-self: end;
-    margin: 0;
-    cursor: pointer;
+    max-width: 90%;
+    margin: auto;
+    column-gap: 1.5em;
 }

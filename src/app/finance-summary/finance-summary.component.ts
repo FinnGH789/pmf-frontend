@@ -2,8 +2,8 @@ import {
   Component,
   computed,
   inject,
-  linkedSignal,
   OnInit,
+  resource,
   Signal,
   signal,
 } from '@angular/core';
@@ -13,44 +13,35 @@ import { AusgabenService } from 'src/services/AusgabenService/ausgaben.service';
 import { Einnahmen } from 'src/model/einnahmen';
 import { Ausgaben } from 'src/model/ausgaben';
 import { FormsModule } from '@angular/forms';
+import { FinanceSummateComponent } from '../finance-summate/finance-summate.component';
+import { Constants } from 'src/constants/constants';
 
 @Component({
   selector: 'app-finance-summary',
-  imports: [FinanceCardComponent, FormsModule],
+  imports: [FinanceCardComponent, FormsModule, FinanceSummateComponent],
   templateUrl: './finance-summary.component.html',
   styleUrl: './finance-summary.component.css',
 })
-export class FinanceSummaryComponent implements OnInit {
-
+export class FinanceSummaryComponent {
   einnahmenService = inject(EinnahmenService);
   ausgabenService = inject(AusgabenService);
 
-  totalEinnahmen = signal<number>(0);
-  totalAusgaben = signal<number>(0);
-  cashBalance = computed(() => this.totalEinnahmen() - this.totalAusgaben());
+  cashBalance = computed(() => this.totalEinnahmen.value() - this.totalAusgaben.value());
 
   addEinnahmenWindow: boolean = false;
   addAusgabenWindow: boolean = false;
 
-  einnahme = new Einnahmen();
-  ausgabe = new Ausgaben()
+  totalEinnahmen = resource({
+    loader: async () => {
+      const res = await fetch(Constants.getTotalEinnahmenUrl);
+      return await res.json();
+    },
+  });
 
-
-  ngOnInit(): void {
-    this.einnahmenService.getTotalEinnahmen().subscribe((value) => {
-      return this.totalEinnahmen.set(value);
-    });
-
-    this.ausgabenService.getTotalAusgaben().subscribe((value) => {
-      return this.totalAusgaben.set(value);
-    });
-  }
-
-  addEinnahmen(einnahme: Einnahmen) {
-    return this.einnahmenService.addEinnahme(einnahme).subscribe();
-  }
-
-  addAusgaben(ausgabe: Ausgaben) {
-    return this.ausgabenService.addAusgabe(ausgabe).subscribe();
-  }
+  totalAusgaben = resource({
+    loader: async () => {
+      const res = await fetch(Constants.getTotalAusgabenUrl);
+      return await res.json();
+    },
+  });
 }

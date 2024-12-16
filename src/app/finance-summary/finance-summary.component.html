@@ -20,67 +20,29 @@
   <app-finance-card>
     <p class="financeCard_title">Einnahmen</p>
     <h3 id="einnahmen" class="financeCard_value">
-      {{ totalEinnahmen() + '€' }}
+      {{ totalEinnahmen.value() + '€' }}
     </h3>
     <p class="financeCard_course">12,5%</p>
   </app-finance-card>
   <app-finance-card>
     <p class="financeCard_title">Ausgaben</p>
-    <h4 id="ausgaben" class="financeCard_value">{{ totalAusgaben() + '€' }}</h4>
+    <h4 id="ausgaben" class="financeCard_value">{{ totalAusgaben.value() + '€' }}</h4>
     <p class="financeCard_course">12,5%</p>
   </app-finance-card>
 </section>
 
-<section>
-  <div class="einnahmen_container">
-    <div class="icon_container_einnahmen" (click)="addEinnahmenWindow = true" v>
-      <img src="add.png" alt="" />
-    </div>
-    <div class="add_finance">
-      <p class="add_finance_title">Einnahmen hinzufügen</p>
-      <p>Erstellen sie manuell eine Einnahme</p>
-    </div>
-  </div>
-  <div class="ausgaben_container">
-    <div class="icon_container_ausgaben">
-      <img src="minus.png" alt="" />
-    </div>
-    <div class="add_finance">
-      <p class="add_finance_title">Ausgaben hinzufügen</p>
-      <p>Erstellen sie manuell eine Ausgaben</p>
-    </div>
-  </div>
-</section>
+<div class="container_summate">
+  <app-finance-summate
+    [icon]="'add.png'"
+    [caption]="'Einnahmen hinzufügen'"
+    [label]="'Erstellen sie manuell eine Einnahme'"
+    [popUpCaption]="'Fügen Sie ihre Einnahme hinzu!'"
+  ></app-finance-summate>
 
-@if (addEinnahmenWindow) {
-  <div class="addEinnahmenWindow">
-    <h1>Fügen Sie ihre Einnahme hinzu!</h1>
-    <img
-      class="close"
-      src="close.png"
-      alt=""
-      (click)="addEinnahmenWindow = false"
-    />
-    <div>
-      <input
-        type="text"
-        value=""
-        placeholder="Grund"
-        [(ngModel)]="einnahme.name"
-      />
-      <input
-        type="text"
-        value=""
-        placeholder="Betrag"
-        [(ngModel)]="einnahme.einnahme"
-      />
-      <input
-        type="text"
-        value=""
-        placeholder="z.B. Bank-Transaktion"
-        [(ngModel)]="einnahme.id"
-      />
-    </div>
-    <input type="button" value="Enter" (click)="addEinnahmen(einnahme)" />
-  </div>
-}
+  <app-finance-summate
+    [icon]="'minus.png'"
+    [caption]="'Ausgaben hinzufügen'"
+    [label]="'Erstellen sie manuell eine Ausgabe'"
+    [popUpCaption]="'Fügen Sie ihre Ausgabe hinzu!'"
+  ></app-finance-summate>
+</div>

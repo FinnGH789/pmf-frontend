@@ -1,0 +1,46 @@
+<section class="summate_container">
+  <div class="icon_container" (click)="openSummate.set(true)">
+    <img
+      src="{{ icon() }}"
+      alt="An Icon to add Financies to your Total Transaction List"
+    />
+  </div>
+  <div class="add_finance">
+    <p class="add_finance_title">{{ caption() }}</p>
+    <p>{{ label() }}</p>
+  </div>
+</section>
+
+<!-- popup um Finanz hinzuzufügen -->
+@if (openSummate()) {
+  <div class="summateWindow">
+    <h1>{{ popUpCaption() }}</h1>
+    <img
+      class="close"
+      src="close.png"
+      alt=""
+      (click)="openSummate.set(false)"
+    />
+    <div>
+      <input
+        type="text"
+        value=""
+        placeholder="Grund"
+        [(ngModel)]="einnahme.name"
+      />
+      <input
+        type="text"
+        value=""
+        placeholder="Betrag"
+        [(ngModel)]="einnahme.einnahme"
+      />
+      <input
+        type="text"
+        value=""
+        placeholder="z.B. Bank-Transaktion"
+        [(ngModel)]="einnahme.id"
+      />
+    </div>
+    <input id="enter" type="button" value="Enter" (click)="addEinnahmen(einnahme)" />
+  </div>
+}
