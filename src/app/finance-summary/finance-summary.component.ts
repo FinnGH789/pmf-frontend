@@ -26,7 +26,9 @@ export class FinanceSummaryComponent {
   einnahmenService = inject(EinnahmenService);
   ausgabenService = inject(AusgabenService);
 
-  cashBalance = computed(() => this.totalEinnahmen.value() - this.totalAusgaben.value());
+  cashBalance = computed(
+    () => this.totalEinnahmen.value() - this.totalAusgaben.value(),
+  );
 
   addEinnahmenWindow: boolean = false;
   addAusgabenWindow: boolean = false;
