@@ -39,6 +39,9 @@
     [caption]="'Einnahmen hinzufügen'"
     [label]="'Erstellen sie manuell eine Einnahme'"
     [popUpCaption]="'Fügen Sie ihre Einnahme hinzu!'"
+    [backgroundColor]="'var(--clr-einnahmen-accent)'"
+    (addEinnahmenEvent)="handleAddEinnahmen($event)"
+    [einnahmeTruthy]="true"
   ></app-finance-summate>
 
   <app-finance-summate
@@ -46,5 +49,7 @@
     [caption]="'Ausgaben hinzufügen'"
     [label]="'Erstellen sie manuell eine Ausgabe'"
     [popUpCaption]="'Fügen Sie ihre Ausgabe hinzu!'"
+    [backgroundColor]="'var(--clr-ausgaben-accent)'"
+    (addAusgabenEvent)="handleAddAusgaben($event)"
   ></app-finance-summate>
 </div>
