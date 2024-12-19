@@ -1,6 +1,6 @@
 <summary class="grid_container">
   <section class="chart_overview">
-    <h1>Ausgaben nach Kategorie</h1>
+    <h1>Finanzen nach Kategorie</h1>
     <div class="chart">
       <app-chart></app-chart>
     </div>
@@ -47,7 +47,7 @@
       @for (einnahmen of totalEinnahmenList.value(); track $index) {
         <tr>
           <td>{{ einnahmen.name }}</td>
-          <td>{{ 'Kreditkarte' }}</td>
+          <td>{{ einnahmen.zahlungsmittel }}</td>
           <td>{{ einnahmen.einnahme + '€' }}</td>
           <td>
             <img

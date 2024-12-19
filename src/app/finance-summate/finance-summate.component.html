@@ -16,16 +16,28 @@
 </section>
 
 <!-- popup um Finanz hinzuzufügen -->
- 
+
 @if (openSummate()) {
   @if (einnahmeTruthy()) {
     <div class="summateWindow">
       <h1>{{ popUpCaption() }}</h1>
-      <img class="close" src="close.png" alt="" (click)="toggleSummate()" /> 
-      <div [formGroup]="einnahmenForm">
-        <app-input-text [label]="'Grund'" formControlName="grund_einnahmen"></app-input-text>
-        <app-input-text [label]="'Betrag'" formControlName="betrag_einnahmen"></app-input-text>
-        <app-input-text [label]="'Bank-Transaktion'" formControlName="method_einnahmen"></app-input-text>
+      <img class="close" src="close.png" alt="" (click)="toggleSummate()" />
+      <div class="form" [formGroup]="einnahmenForm">
+        <app-input-text
+          [label]="'Grund'"
+          formControlName="grund_einnahmen"
+          [(ngModel)]="einnahme.name"
+        ></app-input-text>
+        <app-input-text
+          [label]="'Betrag'"
+          formControlName="betrag_einnahmen"
+          [(ngModel)]="einnahme.einnahme"
+        ></app-input-text>
+        <app-input-text
+          [label]="'Zahlungsmittel'"
+          formControlName="method_einnahmen"
+          [(ngModel)]="einnahme.zahlungsmittel"
+        ></app-input-text>
       </div>
       <input
         id="enter"
@@ -39,9 +51,21 @@
       <h1>{{ popUpCaption() }}</h1>
       <img class="close" src="close.png" alt="" (click)="toggleSummate()" />
       <div [formGroup]="ausgabenForm">
-        <app-input-text [label]="'Grund'" formControlName="grund_ausgaben"></app-input-text>
-        <app-input-text [label]="'Betrag'" formControlName="betrag_ausgaben"></app-input-text>
-        <app-input-text [label]="'Bank-Transaktion'" formControlName="method_ausgaben"></app-input-text>
+        <app-input-text
+          [label]="'Grund'"
+          formControlName="grund_ausgaben"
+          [(ngModel)]="ausgabe.name"
+        ></app-input-text>
+        <app-input-text
+          [label]="'Betrag'"
+          formControlName="betrag_ausgaben"
+          [(ngModel)]="ausgabe.ausgabe"
+        ></app-input-text>
+        <app-input-text
+          [label]="'Zahlungsmittel'"
+          formControlName="method_ausgaben"
+          [(ngModel)]="ausgabe.zahlungsmittel"
+        ></app-input-text>
       </div>
       <input
         id="enter"

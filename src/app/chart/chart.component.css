@@ -1,3 +1,8 @@
-div {
+section {
     place-self: center;
+}
+
+.error-dialog {
+    color: red;
+    padding: 2em;
 }

@@ -1,7 +1,6 @@
 import {
   Component,
   ElementRef,
-  EventEmitter,
   HostListener,
   inject,
   input,
@@ -61,6 +60,7 @@ export class FinanceSummateComponent {
   toggleSummate() {
     this.openSummate.update((val) => !val);
     this.einnahmenForm.reset();
+    this.ausgabenForm.reset();
   }
 
   addEinnahmen(einnahme: Einnahmen) {
@@ -80,6 +80,8 @@ export class FinanceSummateComponent {
       !this.elementRef.nativeElement.contains(event.target)
     ) {
       this.openSummate.set(false);
+      this.einnahmenForm.reset();
+      this.ausgabenForm.reset();
     }
   }
 }
