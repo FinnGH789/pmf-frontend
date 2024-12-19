@@ -1,0 +1,115 @@
+.summate_container {
+  display: flex;
+  border: 1.5px solid #eceff2;
+  border-radius: 7.5px;
+  padding: 1em;
+  margin: 1.5em 0em;
+}
+
+.icon_container {
+  border-radius: 7.5px;
+  padding: 1em;
+  transition: all 0.2s ease-in-out;
+  cursor: pointer;
+}
+
+.add_finance {
+  align-self: center;
+  margin-inline: 0.75em;
+}
+
+.add_finance > p {
+  margin-block: 0.2em;
+}
+
+.add_finance_title {
+  font-weight: 400;
+}
+
+.icon_container:hover {
+  transform: scale(1.1);
+  transition: all 0.2s ease-in-out;
+}
+
+/* popup um finanz hinzuzufügen */
+
+.summateWindow {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  position: absolute;
+  inset: 35% 0% 0% 50%;
+  transform: translate(-50%, -50%);
+  width: 50em;
+  max-height: 20em;
+  border: var(--box-border);
+  border-radius: var(--box-radius);
+  background-color: white;
+  padding: 1.5em;
+  animation: blurIn 0.25s;
+}
+
+.summateWindow > div {
+  display: flex;
+  flex-direction: column;
+}
+
+input {
+  margin-block: 0.5em;
+}
+
+#enter {
+  align-self: end;
+  justify-self: end;
+  min-height: 2.5em;
+  min-width: 10em;
+  margin: 1.5em 1em;
+}
+
+.close {
+  justify-self: end;
+  margin: 0;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+}
+
+.close:hover {
+  transform: scale(1.1);
+  transition: all 0.2s ease-in-out;
+  cursor: pointer;
+}
+
+@keyframes blurIn {
+  0% {
+    opacity: 0;
+  }
+  10% {
+    opacity: 0.1;
+  }
+  20% {
+    opacity: 0.2;
+  }
+  30% {
+    opacity: 0.3;
+  }
+  40% {
+    opacity: 0.4;
+  }
+  50% {
+    opacity: 0.5;
+  }
+  60% {
+    opacity: 0.6;
+  }
+  70% {
+    opacity: 0.7;
+  }
+  80% {
+    opacity: 0.8;
+  }
+  90% {
+    opacity: 0.9;
+  }
+  100% {
+    opacity: 1;
+  }
+}

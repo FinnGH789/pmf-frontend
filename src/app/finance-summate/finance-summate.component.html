@@ -1,0 +1,54 @@
+<section class="summate_container">
+  <div
+    class="icon_container"
+    [style.background-color]="backgroundColor()"
+    (click)="toggleSummate()"
+  >
+    <img
+      src="{{ icon() }}"
+      alt="An Icon to add Financies to your Total Transaction List"
+    />
+  </div>
+  <div class="add_finance">
+    <p class="add_finance_title">{{ caption() }}</p>
+    <p>{{ label() }}</p>
+  </div>
+</section>
+
+<!-- popup um Finanz hinzuzufügen -->
+ 
+@if (openSummate()) {
+  @if (einnahmeTruthy()) {
+    <div class="summateWindow">
+      <h1>{{ popUpCaption() }}</h1>
+      <img class="close" src="close.png" alt="" (click)="toggleSummate()" /> 
+      <div [formGroup]="einnahmenForm">
+        <app-input-text [label]="'Grund'" formControlName="grund_einnahmen"></app-input-text>
+        <app-input-text [label]="'Betrag'" formControlName="betrag_einnahmen"></app-input-text>
+        <app-input-text [label]="'Bank-Transaktion'" formControlName="method_einnahmen"></app-input-text>
+      </div>
+      <input
+        id="enter"
+        type="button"
+        value="Enter"
+        (click)="addEinnahmen(einnahme)"
+      />
+    </div>
+  } @else {
+    <div class="summateWindow">
+      <h1>{{ popUpCaption() }}</h1>
+      <img class="close" src="close.png" alt="" (click)="toggleSummate()" />
+      <div [formGroup]="ausgabenForm">
+        <app-input-text [label]="'Grund'" formControlName="grund_ausgaben"></app-input-text>
+        <app-input-text [label]="'Betrag'" formControlName="betrag_ausgaben"></app-input-text>
+        <app-input-text [label]="'Bank-Transaktion'" formControlName="method_ausgaben"></app-input-text>
+      </div>
+      <input
+        id="enter"
+        type="button"
+        value="Enter"
+        (click)="addAusgaben(ausgabe)"
+      />
+    </div>
+  }
+}

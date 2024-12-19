@@ -39,19 +39,25 @@
     <p>Übersicht über ihre letzten Transaktionen</p>
     <table>
       <tr>
-          <th>Beschreibung</th>
-          <th>Methode</th>
-          <th>Betrag</th>
-          <th></th>
+        <th>Beschreibung</th>
+        <th>Methode</th>
+        <th>Betrag</th>
+        <th></th>
       </tr>
-      @for (einnahmen of einnahmenList(); track $index) {
-      <tr> 
-        <td>{{ einnahmen.name }}</td>
-        <td>{{ 'Kreditkarte' }}</td>
-        <td>{{ einnahmen.einnahme + '€' }}</td>
-        <td><img class="icon_more" src="more.png" alt="Transaktionen erweiterte Einstellungen"></td>
-      </tr> 
-    }
+      @for (einnahmen of totalEinnahmenList.value(); track $index) {
+        <tr>
+          <td>{{ einnahmen.name }}</td>
+          <td>{{ 'Kreditkarte' }}</td>
+          <td>{{ einnahmen.einnahme + '€' }}</td>
+          <td>
+            <img
+              class="icon_more"
+              src="more.png"
+              alt="Transaktionen erweiterte Einstellungen"
+            />
+          </td>
+        </tr>
+      }
     </table>
   </section>
 </summary>

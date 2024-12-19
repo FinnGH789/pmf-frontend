@@ -13,12 +13,6 @@ export class EinnahmenService {
   private httpClient = inject(HttpClient);
   private destroyRef = inject(DestroyRef);
 
-  getEinnahmen(): Observable<Einnahmen[]> {
-    return this.httpClient
-      .get<Einnahmen[]>(Constants.getEinnahmenUrl)
-      .pipe(takeUntilDestroyed(this.destroyRef));
-  }
-
   getTotalEinnahmen(): Observable<number> {
     return this.httpClient
       .get<number>(Constants.getTotalEinnahmenUrl)

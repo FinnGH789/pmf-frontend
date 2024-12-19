@@ -49,13 +49,13 @@ a, li {
     font-weight: 400;
 }
 
+canvas {
+    max-width: 100%;
+}
+
 /* Nur für Übersichts-Zwecke */
+
 body {
     margin-bottom: 3.5em;
 }
 
-input[type="text"] {
-    border: 1px solid red;
-    border-radius: var(--box-radius);
-    padding: 0.5em;
-}

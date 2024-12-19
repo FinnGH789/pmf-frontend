@@ -2,55 +2,56 @@ import {
   Component,
   computed,
   inject,
-  linkedSignal,
-  OnInit,
-  Signal,
-  signal,
+  resource,
 } from '@angular/core';
 import { FinanceCardComponent } from '../finance-card/finance-card.component';
-import { EinnahmenService } from 'src/services/EinnahmenService/einnahmen.service';
-import { AusgabenService } from 'src/services/AusgabenService/ausgaben.service';
+import { FormsModule } from '@angular/forms';
+import { FinanceSummateComponent } from '../finance-summate/finance-summate.component';
+import { Constants } from 'src/constants/constants';
 import { Einnahmen } from 'src/model/einnahmen';
 import { Ausgaben } from 'src/model/ausgaben';
-import { FormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-finance-summary',
-  imports: [FinanceCardComponent, FormsModule],
+  imports: [FinanceCardComponent, FormsModule, FinanceSummateComponent],
   templateUrl: './finance-summary.component.html',
   styleUrl: './finance-summary.component.css',
 })
-export class FinanceSummaryComponent implements OnInit {
+export class FinanceSummaryComponent {
 
-  einnahmenService = inject(EinnahmenService);
-  ausgabenService = inject(AusgabenService);
+  cashBalance = computed(
+    () => this.totalEinnahmen.value() - this.totalAusgaben.value(),
+  );
 
-  totalEinnahmen = signal<number>(0);
-  totalAusgaben = signal<number>(0);
-  cashBalance = computed(() => this.totalEinnahmen() - this.totalAusgaben());
+  totalEinnahmen = resource({
+    loader: async () => {
+      const res = await fetch(Constants.getTotalEinnahmenUrl);
+      return await res.json();
+    },
+  });
 
-  addEinnahmenWindow: boolean = false;
-  addAusgabenWindow: boolean = false;
+  totalAusgaben = resource({
+    loader: async () => {
+      const res = await fetch(Constants.getTotalAusgabenUrl);
+      return await res.json();
+    },
+  });
 
-  einnahme = new Einnahmen();
-  ausgabe = new Ausgaben()
-
-
-  ngOnInit(): void {
-    this.einnahmenService.getTotalEinnahmen().subscribe((value) => {
-      return this.totalEinnahmen.set(value);
-    });
-
-    this.ausgabenService.getTotalAusgaben().subscribe((value) => {
-      return this.totalAusgaben.set(value);
-    });
+  handleAddEinnahmen(einnahme: Einnahmen) {
+    console.log('Einnahme hinzugefügt:', einnahme);
+  
+    this.totalEinnahmen.update((current) => 
+      Number(current) + Number(einnahme?.einnahme)
+    );
   }
 
-  addEinnahmen(einnahme: Einnahmen) {
-    return this.einnahmenService.addEinnahme(einnahme).subscribe();
+  handleAddAusgaben(ausgabe: Ausgaben) {
+    console.log('Ausgabe hinzugefügt:', ausgabe);
+  
+    this.totalAusgaben.update((current) => 
+      Number(current) + Number(ausgabe?.ausgabe)
+    );
   }
+  
 
-  addAusgaben(ausgabe: Ausgaben) {
-    return this.ausgabenService.addAusgabe(ausgabe).subscribe();
-  }
 }

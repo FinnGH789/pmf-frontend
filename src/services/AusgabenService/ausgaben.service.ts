@@ -12,12 +12,6 @@ export class AusgabenService {
   httpClient = inject(HttpClient);
   destroyRef = inject(DestroyRef);
 
-  getAusgaben(): Observable<Ausgaben[]> {
-    return this.httpClient
-      .get<Ausgaben[]>(Constants.getAusgabenUrl)
-      .pipe(takeUntilDestroyed(this.destroyRef));
-  }
-
   getTotalAusgaben(): Observable<number> {
     return this.httpClient
       .get<number>(Constants.getTotalAusgabenUrl)
