@@ -39,18 +39,13 @@
   position: absolute;
   inset: 35% 0% 0% 50%;
   transform: translate(-50%, -50%);
-  height: 15em;
   width: 50em;
+  max-height: 20em;
   border: var(--box-border);
   border-radius: var(--box-radius);
   background-color: white;
   padding: 1.5em;
   animation: blurIn 0.25s;
-}
-
-.summateWindow:active > .summateWindow {
-  background-color: red;
-  backdrop-filter: blur(100px);
 }
 
 .summateWindow > div {

@@ -1,0 +1,12 @@
+<div class="input-text">
+    <input
+     type="text"
+      placeholder=""
+       [value]="value"
+       [disabled]="disabled" />
+    <label >{{ label() }}</label>
+  </div>
+  
+  @if(control.touched && control.hasError('required')) {
+    <div class="error">Dieses Feld ist ein Pflichtfeld</div>
+  }

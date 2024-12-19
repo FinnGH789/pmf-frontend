@@ -5,23 +5,26 @@ import {
   HostListener,
   inject,
   input,
+  NgModule,
   Output,
   output,
   signal,
 } from '@angular/core';
-import { FormsModule } from '@angular/forms';
+import { FormControl, FormGroup, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
 import { Ausgaben } from 'src/model/ausgaben';
 import { Einnahmen } from 'src/model/einnahmen';
 import { AusgabenService } from 'src/services/AusgabenService/ausgaben.service';
 import { EinnahmenService } from 'src/services/EinnahmenService/einnahmen.service';
+import { InputTextComponent } from '../input-text/input-text.component';
 
 @Component({
   selector: 'app-finance-summate',
-  imports: [FormsModule],
+  imports: [FormsModule, InputTextComponent, ReactiveFormsModule],
   templateUrl: './finance-summate.component.html',
   styleUrl: './finance-summate.component.css',
 })
 export class FinanceSummateComponent {
+
   icon = input.required<string>();
   caption = input.required<string>();
   label = input.required<string>();
@@ -43,8 +46,21 @@ export class FinanceSummateComponent {
   einnahme = new Einnahmen();
   ausgabe = new Ausgaben();
 
+  ausgabenForm = new FormGroup({
+    grund_ausgaben: new FormControl('', Validators.required),
+    betrag_ausgaben: new FormControl('', Validators.required),
+    method_ausgaben: new FormControl('', Validators.required)
+  });
+
+  einnahmenForm = new FormGroup({
+    grund_einnahmen: new FormControl('', Validators.required),
+    betrag_einnahmen: new FormControl('', Validators.required),
+    method_einnahmen: new FormControl('', Validators.required)
+  });
+
   toggleSummate() {
     this.openSummate.update((val) => !val);
+    this.einnahmenForm.reset();
   }
 
   addEinnahmen(einnahme: Einnahmen) {
