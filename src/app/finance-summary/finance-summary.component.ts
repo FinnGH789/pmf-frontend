@@ -43,7 +43,7 @@ export class FinanceSummaryComponent {
     console.log('Einnahme hinzugefügt:', einnahme);
   
     this.totalEinnahmen.update((current) => 
-      Number(current) + Number(einnahme?.einnahme)
+      Number(current) + Number(einnahme?.beschreibung)
     );
   }
 
@@ -51,7 +51,7 @@ export class FinanceSummaryComponent {
     console.log('Ausgabe hinzugefügt:', ausgabe);
   
     this.totalAusgaben.update((current) => 
-      Number(current) + Number(ausgabe?.ausgabe)
+      Number(current) + Number(ausgabe?.beschreibung)
     );
   }
   

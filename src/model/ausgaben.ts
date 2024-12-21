@@ -1,6 +1,6 @@
 export class Ausgaben {
   id?: string;
-  name?: string;
-  ausgabe?: string;
+  beschreibung?: string;
+  betrag?: string;
   zahlungsmittel?: string;
 }

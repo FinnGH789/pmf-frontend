@@ -1,6 +1,6 @@
 export class Einnahmen {
   id?: string;
-  name?: string;
-  einnahme?: string;
+  beschreibung?: string;
+  betrag?: string;
   zahlungsmittel?: string;
 }

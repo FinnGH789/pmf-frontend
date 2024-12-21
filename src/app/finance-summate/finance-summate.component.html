@@ -26,16 +26,16 @@
         <app-input-text
           [label]="'Grund'"
           formControlName="grund_einnahmen"
-          [(ngModel)]="einnahme.name"
+          [(ngModel)]="einnahme.betrag"
         ></app-input-text>
         <app-input-text
           [label]="'Betrag'"
           formControlName="betrag_einnahmen"
-          [(ngModel)]="einnahme.einnahme"
+          [(ngModel)]="einnahme.betrag"
         ></app-input-text>
         <app-input-text
           [label]="'Zahlungsmittel'"
-          formControlName="method_einnahmen"
+          formControlName="zahlungsmittel_einnahmen"
           [(ngModel)]="einnahme.zahlungsmittel"
         ></app-input-text>
       </div>
@@ -54,12 +54,12 @@
         <app-input-text
           [label]="'Grund'"
           formControlName="grund_ausgaben"
-          [(ngModel)]="ausgabe.name"
+          [(ngModel)]="ausgabe.beschreibung"
         ></app-input-text>
         <app-input-text
           [label]="'Betrag'"
           formControlName="betrag_ausgaben"
-          [(ngModel)]="ausgabe.ausgabe"
+          [(ngModel)]="ausgabe.betrag"
         ></app-input-text>
         <app-input-text
           [label]="'Zahlungsmittel'"
