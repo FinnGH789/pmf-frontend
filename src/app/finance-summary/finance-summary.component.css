@@ -29,21 +29,6 @@ h1 {
   border: 1.5px solid #eceff2;
 }
 
-input[type='button'] {
-  background-color: white;
-  border: none;
-  max-width: 100%;
-  padding: 0.65em;
-  border-radius: 5px;
-  cursor: pointer;
-  color: var(--clr-font);
-}
-
-input[type='button']:hover {
-  background-color: var(--clr-secondary);
-  color: var(--clr-blueFont);
-}
-
 .financeCard_title {
   align-self: center;
   grid-area: 1 / 1 / 2 / 3;

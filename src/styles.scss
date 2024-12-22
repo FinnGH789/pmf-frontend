@@ -53,9 +53,23 @@ canvas {
     max-width: 100%;
 }
 
+input[type='button'] {
+    background-color: white;
+    border: none;
+    max-width: 100%;
+    padding: 0.65em;
+    border-radius: 5px;
+    cursor: pointer;
+    color: var(--clr-font);
+  }
+  
+  input[type='button']:hover {
+    background-color: var(--clr-secondary);
+    color: var(--clr-blueFont);
+  }
+
 /* Nur für Übersichts-Zwecke */
 
 body {
     margin-bottom: 3.5em;
 }
-

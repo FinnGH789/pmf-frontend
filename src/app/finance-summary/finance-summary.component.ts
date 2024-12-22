@@ -2,6 +2,8 @@ import {
   Component,
   computed,
   inject,
+  linkedSignal,
+  OnInit,
   resource,
 } from '@angular/core';
 import { FinanceCardComponent } from '../finance-card/finance-card.component';
@@ -20,7 +22,7 @@ import { Ausgaben } from 'src/model/ausgaben';
 export class FinanceSummaryComponent {
 
   cashBalance = computed(
-    () => this.totalEinnahmen.value() - this.totalAusgaben.value(),
+    () => this.totalEinnahmen.value() - this.totalAusgaben.value()
   );
 
   totalEinnahmen = resource({
@@ -41,7 +43,7 @@ export class FinanceSummaryComponent {
     console.log('Einnahme hinzugefügt:', einnahme);
   
     this.totalEinnahmen.update((current) => 
-      Number(current) + Number(einnahme?.einnahme)
+      Number(current) + Number(einnahme?.beschreibung)
     );
   }
 
@@ -49,7 +51,7 @@ export class FinanceSummaryComponent {
     console.log('Ausgabe hinzugefügt:', ausgabe);
   
     this.totalAusgaben.update((current) => 
-      Number(current) + Number(ausgabe?.ausgabe)
+      Number(current) + Number(ausgabe?.beschreibung)
     );
   }
   

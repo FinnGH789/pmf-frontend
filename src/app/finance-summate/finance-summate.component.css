@@ -40,7 +40,7 @@
   inset: 35% 0% 0% 50%;
   transform: translate(-50%, -50%);
   width: 50em;
-  max-height: 20em;
+  max-height: 19em;
   border: var(--box-border);
   border-radius: var(--box-radius);
   background-color: white;
@@ -62,7 +62,9 @@ input {
   justify-self: end;
   min-height: 2.5em;
   min-width: 10em;
-  margin: 1.5em 1em;
+  margin: 1.5em 0em;
+  border: var(--box-border);
+  border-radius: var(--box-radius);
 }
 
 .close {

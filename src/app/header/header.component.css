@@ -60,12 +60,13 @@ li:hover {
   color: var(--clr-blueFont);
 }
 
-.icon-settings:hover {
-  rotate: 90deg;
+
+.bell:hover {
+  animation: ring 5s;
 }
 
-.icon-bell:hover {
-  animation: ring 5s;
+.settings:hover {
+  animation: rotate 1s;
 }
 
 .expandedSettingsBar_Container {
@@ -100,6 +101,18 @@ li:hover {
   height: 100%;
   width: 90%;
   text-align: center;
+}
+
+@keyframes rotate {
+  0%  {
+    transform: rotate(0deg);
+  }
+  50%  {
+    transform: rotate(90deg);
+  }
+  100%  {
+    transform: rotate(0deg);
+  }
 }
 
 @keyframes ring {
