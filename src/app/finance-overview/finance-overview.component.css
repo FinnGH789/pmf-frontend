@@ -46,6 +46,16 @@ th {
     scrollbar-color: var(--clr-grey) transparent;
 }
 
+.todo {
+    display: flex;
+    justify-content: space-between;
+    margin-inline: 1em;
+}
+
+button {
+    margin-inline: 1em;
+}
+
 .finance_history > h2, p {
     padding: 0.25em 1em;
 }

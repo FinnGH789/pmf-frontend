@@ -35,8 +35,17 @@
   </section>
 
   <section class="finance_history">
-    <h2>Letzten Transaktionen</h2>
-    <p>Übersicht über ihre letzten Transaktionen</p>
+    <div class="todo">
+      <h2>Letzten Transaktionen</h2>
+      <div>
+        @if (changeList()) {
+          <button (click)="toggleList()">Siehe Ausgaben</button>
+        } @else {
+          <button (click)="toggleList()">Siehe Einnahmen</button>
+        }
+      </div>
+    </div>
+    <p>Übersicht über ihre letzten {{ changeList() ? 'Einnahmen' : 'Ausgaben' }}</p>
     <table>
       <tr>
         <th>Beschreibung</th>
@@ -44,15 +53,64 @@
         <th>Betrag</th>
         <th></th>
       </tr>
-      @for (einnahmen of totalEinnahmenList.value(); track $index) {
-        <tr>
-          <td>{{ einnahmen.beschreibung }}</td>
-          <td>{{ einnahmen.zahlungsmittel }}</td>
-          <td>{{ einnahmen.betrag + '€' }}</td>
-          <td>
-            <svg width="25px" height="25px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <circle cx="12" cy="6" r="1.5" fill="#516778"></circle> <circle cx="12" cy="12" r="1.5" fill="#516778"></circle> <circle cx="12" cy="18" r="1.5" fill="#516778"></circle> </g></svg>
-          </td>
-        </tr>
+      @if (changeList()) {
+        @for (einnahmen of totalEinnahmenList.value(); track $index) {
+          <tr>
+            <td>{{ einnahmen.beschreibung }}</td>
+            <td>{{ einnahmen.zahlungsmittel }}</td>
+            <td>{{ einnahmen.betrag + '€' }}</td>
+            <td>
+              <svg
+                width="25px"
+                height="25px"
+                viewBox="0 0 24 24"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+                <g
+                  id="SVGRepo_tracerCarrier"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                ></g>
+                <g id="SVGRepo_iconCarrier">
+                  <circle cx="12" cy="6" r="1.5" fill="#516778"></circle>
+                  <circle cx="12" cy="12" r="1.5" fill="#516778"></circle>
+                  <circle cx="12" cy="18" r="1.5" fill="#516778"></circle>
+                </g>
+              </svg>
+            </td>
+          </tr>
+        }
+      } @else {
+        @for (ausgaben of totalAusgabenList.value(); track $index) {
+          <tr>
+            <td>{{ ausgaben.beschreibung }}</td>
+            <td>{{ ausgaben.zahlungsmittel }}</td>
+            <td>{{ '-' + ausgaben.betrag + '€' }}</td>
+            <td>
+              <svg
+                width="25px"
+                height="25px"
+                viewBox="0 0 24 24"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+                <g
+                  id="SVGRepo_tracerCarrier"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                ></g>
+                <g id="SVGRepo_iconCarrier">
+                  <circle cx="12" cy="6" r="1.5" fill="#516778"></circle>
+                  <circle cx="12" cy="12" r="1.5" fill="#516778"></circle>
+                  <circle cx="12" cy="18" r="1.5" fill="#516778"></circle>
+                </g>
+              </svg>
+            </td>
+          </tr>
+        }
       }
     </table>
   </section>

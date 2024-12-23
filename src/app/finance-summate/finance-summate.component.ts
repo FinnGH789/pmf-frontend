@@ -51,15 +51,15 @@ export class FinanceSummateComponent {
   ausgabe = new Ausgaben();
 
   ausgabenForm = new FormGroup({
-    grund_ausgaben: new FormControl('1', Validators.required),
-    betrag_ausgaben: new FormControl('1', Validators.required),
-    method_ausgaben: new FormControl('1', Validators.required),
+    grund_ausgaben: new FormControl('', Validators.required),
+    betrag_ausgaben: new FormControl('', Validators.required),
+    method_ausgaben: new FormControl('', Validators.required),
   });
 
   einnahmenForm = new FormGroup({
     grund_einnahmen: new FormControl('', Validators.required),
     betrag_einnahmen: new FormControl('', Validators.required),
-    method_einnahmen: new FormControl('', Validators.required),
+    zahlungsmittel_einnahmen: new FormControl('', Validators.required),
   });
 
   toggleSummate() {
