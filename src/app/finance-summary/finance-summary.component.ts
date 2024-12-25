@@ -20,9 +20,8 @@ import { Ausgaben } from 'src/model/ausgaben';
   styleUrl: './finance-summary.component.css',
 })
 export class FinanceSummaryComponent {
-
   cashBalance = computed(
-    () => this.totalEinnahmen.value() - this.totalAusgaben.value()
+    () => this.totalEinnahmen.value() - this.totalAusgaben.value(),
   );
 
   totalEinnahmen = resource({
@@ -41,19 +40,17 @@ export class FinanceSummaryComponent {
 
   handleAddEinnahmen(einnahme: Einnahmen) {
     console.log('Einnahme hinzugefügt:', einnahme);
-  
-    this.totalEinnahmen.update((current) => 
-      Number(current) + Number(einnahme?.beschreibung)
+
+    this.totalEinnahmen.update(
+      (current) => Number(current) + Number(einnahme?.beschreibung),
     );
   }
 
   handleAddAusgaben(ausgabe: Ausgaben) {
     console.log('Ausgabe hinzugefügt:', ausgabe);
-  
-    this.totalAusgaben.update((current) => 
-      Number(current) + Number(ausgabe?.beschreibung)
+
+    this.totalAusgaben.update(
+      (current) => Number(current) + Number(ausgabe?.beschreibung),
     );
   }
-  
-
 }

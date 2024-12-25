@@ -52,8 +52,10 @@ th {
     margin-inline: 1em;
 }
 
-button {
-    margin-inline: 1em;
+input[type=button] {
+    border: var(--box-border);
+    border-radius: var(--box-radius);
+    min-width: 10em;
 }
 
 .finance_history > h2, p {

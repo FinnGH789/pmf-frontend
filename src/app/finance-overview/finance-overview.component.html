@@ -39,13 +39,15 @@
       <h2>Letzten Transaktionen</h2>
       <div>
         @if (changeList()) {
-          <button (click)="toggleList()">Siehe Ausgaben</button>
+          <input type="button" (click)="toggleList()" value="Siehe Ausgaben" />
         } @else {
-          <button (click)="toggleList()">Siehe Einnahmen</button>
+          <input type="button" (click)="toggleList()" value="Siehe Einnahmen" />
         }
       </div>
     </div>
-    <p>Übersicht über ihre letzten {{ changeList() ? 'Einnahmen' : 'Ausgaben' }}</p>
+    <p>
+      Übersicht über ihre letzten {{ changeList() ? 'Einnahmen' : 'Ausgaben' }}
+    </p>
     <table>
       <tr>
         <th>Beschreibung</th>

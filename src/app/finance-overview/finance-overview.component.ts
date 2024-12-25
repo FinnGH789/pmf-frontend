@@ -5,10 +5,11 @@ import { Einnahmen } from 'src/model/einnahmen';
 import { Ausgaben } from 'src/model/ausgaben';
 import { EinnahmenService } from 'src/services/EinnahmenService/einnahmen.service';
 import { Constants } from 'src/constants/constants';
+import { FinanceHistoryComponent } from '../finance-history/finance-history.component';
 
 @Component({
   selector: 'app-finance-overview',
-  imports: [ChartComponent],
+  imports: [ChartComponent, FinanceHistoryComponent],
   templateUrl: './finance-overview.component.html',
   styleUrl: './finance-overview.component.css',
 })
