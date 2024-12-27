@@ -53,3 +53,10 @@
     (addAusgabenEvent)="handleAddAusgaben($event)"
   ></app-finance-summate>
 </div>
+
+<app-finance-overview
+[ausgabenList]="totalAusgabenList.value()"
+[einnahmenList]="totalEinnahmenList.value()"
+>
+
+</app-finance-overview>

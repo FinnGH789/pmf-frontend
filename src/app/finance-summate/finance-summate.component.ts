@@ -70,12 +70,10 @@ export class FinanceSummateComponent {
 
   addEinnahmen(einnahme: Einnahmen) {
     this.addEinnahmenEvent.emit(einnahme);
-    return this.einnahmenService.addEinnahme(einnahme).subscribe();
   }
 
   addAusgaben(ausgabe: Ausgaben) {
     this.addAusgabenEvent.emit(ausgabe);
-    return this.ausgabenService.addAusgabe(ausgabe).subscribe();
   }
 
   @HostListener('document:click', ['$event'])

@@ -18,6 +18,10 @@ export class AusgabenService {
       .pipe(takeUntilDestroyed(this.destroyRef));
   }
 
+  totalAusgabenList() {
+    return fetch(Constants.getAusgabenUrl).then((res) => res.json());
+  }
+
   addAusgabe(ausgaben: Ausgaben): Observable<Ausgaben> {
     return this.httpClient
       .post<Ausgaben>(Constants.addAusgabeUrl, ausgaben)
@@ -25,7 +29,7 @@ export class AusgabenService {
         takeUntilDestroyed(this.destroyRef),
         catchError((error) => {
           throw 'Fehler beim Hinzufügen der Ausgabe: ' + error;
-        })
+        }),
       );
   }
 }

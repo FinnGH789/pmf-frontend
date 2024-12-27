@@ -10,7 +10,7 @@ import { EinnahmenService } from 'src/services/EinnahmenService/einnahmen.servic
     styleUrls: ['./chart.component.css']
 })
 export class ChartComponent implements OnInit {
-  chart: any = [];
+  chart: object = [];
 
   einnahmenService = inject(EinnahmenService);
   ausgabenService = inject(AusgabenService);

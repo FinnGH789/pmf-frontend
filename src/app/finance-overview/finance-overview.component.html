@@ -10,13 +10,12 @@
         <th>2</th>
         <th>3</th>
       </tr>
-
-      @for (finances of totalAusgabenList.value(); track $index) {
+      @for (ausgaben of ausgabenList(); track $index) {
         @if ($index < 5) {
           <tr>
-            <td>{{ finances.beschreibung }}</td>
-            <td>{{ finances.zahlungsmittel }}</td>
-            <td>{{ finances.betrag }}</td>
+            <td>{{ ausgaben.beschreibung }}</td>
+            <td>{{ ausgaben.zahlungsmittel }}</td>
+            <td>{{ ausgaben.betrag }}</td>
           </tr>
         }
       }
@@ -45,7 +44,7 @@
         <th></th>
       </tr>
       @if (changeList()) {
-        @for (einnahmen of totalEinnahmenList.value(); track $index) {
+        @for (einnahmen of einnahmenList(); track $index) {
           <tr>
             <td>{{ einnahmen.beschreibung }}</td>
             <td>{{ einnahmen.zahlungsmittel }}</td>
@@ -74,7 +73,7 @@
           </tr>
         }
       } @else {
-        @for (ausgaben of totalAusgabenList.value(); track $index) {
+        @for (ausgaben of ausgabenList(); track $index) {
           <tr>
             <td>{{ ausgaben.beschreibung }}</td>
             <td>{{ ausgaben.zahlungsmittel }}</td>
