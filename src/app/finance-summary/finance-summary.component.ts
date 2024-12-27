@@ -12,17 +12,27 @@ import { FinanceSummateComponent } from '../finance-summate/finance-summate.comp
 import { Constants } from 'src/constants/constants';
 import { Einnahmen } from 'src/model/einnahmen';
 import { Ausgaben } from 'src/model/ausgaben';
+import { FinanceOverviewComponent } from '../finance-overview/finance-overview.component';
+import { EinnahmenService } from 'src/services/EinnahmenService/einnahmen.service';
+import { AusgabenService } from 'src/services/AusgabenService/ausgaben.service';
 
 @Component({
   selector: 'app-finance-summary',
-  imports: [FinanceCardComponent, FormsModule, FinanceSummateComponent],
+  imports: [
+    FinanceCardComponent,
+    FormsModule,
+    FinanceSummateComponent,
+    FinanceOverviewComponent,
+  ],
   templateUrl: './finance-summary.component.html',
   styleUrl: './finance-summary.component.css',
 })
 export class FinanceSummaryComponent {
+  einnahmenService = inject(EinnahmenService);
+  ausgabenService = inject(AusgabenService);
 
   cashBalance = computed(
-    () => this.totalEinnahmen.value() - this.totalAusgaben.value()
+    () => this.totalEinnahmen.value() - this.totalAusgaben.value(),
   );
 
   totalEinnahmen = resource({
@@ -39,21 +49,40 @@ export class FinanceSummaryComponent {
     },
   });
 
+  totalEinnahmenList = resource({
+    request: () => this.cashBalance(),
+    loader: async () => {
+      return await this.einnahmenService.totalEinnahmenList();
+    },
+  });
+
+  totalAusgabenList = resource({
+    request: () => this.cashBalance(),
+    loader: async () => {
+      return await this.ausgabenService.totalAusgabenList();
+    },
+  });
+
   handleAddEinnahmen(einnahme: Einnahmen) {
-    console.log('Einnahme hinzugefügt:', einnahme);
-  
-    this.totalEinnahmen.update((current) => 
-      Number(current) + Number(einnahme?.beschreibung)
+    this.totalEinnahmen.update(
+      (current) => Number(current) + Number(einnahme?.beschreibung),
     );
+
+    this.einnahmenService.addEinnahme(einnahme).subscribe({
+      next: (response) => {
+        this.totalEinnahmenList.reload();
+      },
+    });
   }
 
   handleAddAusgaben(ausgabe: Ausgaben) {
-    console.log('Ausgabe hinzugefügt:', ausgabe);
-  
-    this.totalAusgaben.update((current) => 
-      Number(current) + Number(ausgabe?.beschreibung)
+    this.totalAusgaben.update(
+      (current) => Number(current) + Number(ausgabe?.beschreibung),
     );
+    this.ausgabenService.addAusgabe(ausgabe).subscribe({
+      next: (response) => {
+        this.totalAusgabenList.reload();
+      },
+    });
   }
-  
-
 }

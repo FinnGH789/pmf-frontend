@@ -9,14 +9,17 @@ import { Einnahmen } from 'src/model/einnahmen';
   providedIn: 'root',
 })
 export class EinnahmenService {
-
   private httpClient = inject(HttpClient);
   private destroyRef = inject(DestroyRef);
 
   getTotalEinnahmen(): Observable<number> {
     return this.httpClient
       .get<number>(Constants.getTotalEinnahmenUrl)
-      .pipe(take(1));
+      .pipe(takeUntilDestroyed(this.destroyRef));
+  }
+
+  totalEinnahmenList() {
+    return fetch(Constants.getEinnahmenUrl).then((res) => res.json());
   }
 
   addEinnahme(einnahmen: Einnahmen): Observable<Einnahmen> {
@@ -26,7 +29,7 @@ export class EinnahmenService {
         takeUntilDestroyed(this.destroyRef),
         catchError((error) => {
           throw 'Fehler beim Hinzufügen der Einnahme: ' + error;
-        })
+        }),
       );
   }
 }

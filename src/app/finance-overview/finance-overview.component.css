@@ -12,6 +12,7 @@
     padding: 1.5em;
     min-width: 32%;
     max-width: 32%;
+    height: 100%;
 }
 
 .chart {
@@ -42,8 +43,21 @@ th {
     border: var(--box-border);
     padding: 1.5em 0 0 0;
     width: 100%;
+    min-height: 40.75em;
     overflow-y: scroll;
     scrollbar-color: var(--clr-grey) transparent;
+}
+
+.todo {
+    display: flex;
+    justify-content: space-between;
+    margin-inline: 1em;
+}
+
+input[type=button] {
+    border: var(--box-border);
+    border-radius: var(--box-radius);
+    min-width: 10em;
 }
 
 .finance_history > h2, p {

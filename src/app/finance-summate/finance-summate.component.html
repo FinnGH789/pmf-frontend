@@ -21,12 +21,41 @@
   @if (einnahmeTruthy()) {
     <div class="summateWindow">
       <h1>{{ popUpCaption() }}</h1>
-      <img class="close" src="close.png" alt="" (click)="toggleSummate()" />
+      <svg
+        class="close"
+        (click)="toggleSummate()"
+        width="30px"
+        height="30px"
+        viewBox="0 0 24 24"
+        fill="none"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <g id="SVGRepo_bgCarrier" stroke-width="0" />
+
+        <g
+          id="SVGRepo_tracerCarrier"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+        />
+
+        <g id="SVGRepo_iconCarrier">
+          <g id="Menu / Close_MD">
+            <path
+              id="Vector"
+              d="M18 18L12 12M12 12L6 6M12 12L18 6M12 12L6 18"
+              stroke="#D92D20"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            />
+          </g>
+        </g>
+      </svg>
       <div class="form" [formGroup]="einnahmenForm">
         <app-input-text
           [label]="'Grund'"
           formControlName="grund_einnahmen"
-          [(ngModel)]="einnahme.betrag"
+          [(ngModel)]="einnahme.beschreibung"
         ></app-input-text>
         <app-input-text
           [label]="'Betrag'"
@@ -49,7 +78,36 @@
   } @else {
     <div class="summateWindow">
       <h1>{{ popUpCaption() }}</h1>
-      <img class="close" src="close.png" alt="" (click)="toggleSummate()" />
+      <svg
+        class="close"
+        (click)="toggleSummate()"
+        width="30px"
+        height="30px"
+        viewBox="0 0 24 24"
+        fill="none"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <g id="SVGRepo_bgCarrier" stroke-width="0" />
+
+        <g
+          id="SVGRepo_tracerCarrier"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+        />
+
+        <g id="SVGRepo_iconCarrier">
+          <g id="Menu / Close_MD">
+            <path
+              id="Vector"
+              d="M18 18L12 12M12 12L6 6M12 12L18 6M12 12L6 18"
+              stroke="#D92D20"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            />
+          </g>
+        </g>
+      </svg>
       <div [formGroup]="ausgabenForm">
         <app-input-text
           [label]="'Grund'"

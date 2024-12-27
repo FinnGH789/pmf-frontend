@@ -1,15 +1,15 @@
 FROM node:latest
 
-RUN mkdir -p /app/src
+RUN mkdir /app
 
-WORKDIR /app/src
+WORKDIR /app
 
-COPY package.json .
+COPY package*.json ./
 
 RUN npm install --force
 
 COPY . .
 
-EXPOSE 3000
+EXPOSE 4200
 
-CMD [ "npm", "start" ]
+CMD ["npm", "run", "start"]

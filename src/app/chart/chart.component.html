@@ -1,9 +1,3 @@
-@if (einnahmenTotal() !== 0) {
   <section>
     <canvas id="canvas">{{ chart }}</canvas>
   </section>
-} @else {
-  <section>
-    <p class="error-dialog">Noch keine Finanzen vorhanden!</p>
-  </section>
-}

@@ -1,32 +1,22 @@
-import { Component, inject, resource, signal } from '@angular/core';
+import { Component, input, signal } from '@angular/core';
 import { ChartComponent } from '../chart/chart.component';
-import { AusgabenService } from 'src/services/AusgabenService/ausgaben.service';
 import { Einnahmen } from 'src/model/einnahmen';
 import { Ausgaben } from 'src/model/ausgaben';
-import { EinnahmenService } from 'src/services/EinnahmenService/einnahmen.service';
-import { Constants } from 'src/constants/constants';
+import { FinanceHistoryComponent } from '../finance-history/finance-history.component';
 
 @Component({
   selector: 'app-finance-overview',
-  imports: [ChartComponent],
+  imports: [ChartComponent, FinanceHistoryComponent],
   templateUrl: './finance-overview.component.html',
   styleUrl: './finance-overview.component.css',
 })
 export class FinanceOverviewComponent {
-  einnahmenService = inject(EinnahmenService);
-  ausgabenService = inject(AusgabenService);
+  einnahmenList = input.required<Einnahmen[]>();
+  ausgabenList = input.required<Ausgaben[]>();
 
-  totalEinnahmenList = resource({
-    loader: async () => {
-      const res = await fetch(Constants.getEinnahmenUrl);
-      return await res.json();
-    },
-  });
+  changeList = signal<boolean>(true);
 
-  totalAusgabenList = resource({
-    loader: async () => {
-      const res = await fetch(Constants.getAusgabenUrl);
-      return await res.json();
-    },
-  });
+  toggleList() {
+    this.changeList.update((change) => (change = !change));
+  }
 }
