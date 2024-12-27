@@ -12,6 +12,7 @@
     padding: 1.5em;
     min-width: 32%;
     max-width: 32%;
+    height: 100%;
 }
 
 .chart {
@@ -42,6 +43,7 @@ th {
     border: var(--box-border);
     padding: 1.5em 0 0 0;
     width: 100%;
+    min-height: 40.75em;
     overflow-y: scroll;
     scrollbar-color: var(--clr-grey) transparent;
 }

@@ -20,11 +20,15 @@ export class FinanceOverviewComponent {
 
   changeList = signal<boolean>(true);
 
+  highestEinnahmen = signal<any[]>([]);
+  highestAusgaben = signal<string[]>([]);
+
   toggleList() {
-    this.changeList.update((change) => change = !change)
+    this.changeList.update((change) => (change = !change));
   }
 
-  totalEinnahmenList = resource<Einnahmen[], Boolean>({ //TODO resource params prüfen
+  totalEinnahmenList = resource<Einnahmen[], Boolean>({
+    //TODO resource params prüfen
     request: () => this.changeList(),
     loader: async () => {
       const res = await fetch(Constants.getEinnahmenUrl);
@@ -32,7 +36,8 @@ export class FinanceOverviewComponent {
     },
   });
 
-  totalAusgabenList = resource<Ausgaben[], Boolean>({  //TODO resource params prüfen
+  totalAusgabenList = resource<Ausgaben[], Boolean>({
+    //TODO resource params prüfen
     request: () => this.changeList(),
     loader: async () => {
       const res = await fetch(Constants.getAusgabenUrl);

@@ -5,32 +5,21 @@
       <app-chart></app-chart>
     </div>
     <table>
-      <!-- Mock-Daten -->
       <tr>
-        <td>icon</td>
-        <td>grund</td>
-        <td>zahl</td>
+        <th>1</th>
+        <th>2</th>
+        <th>3</th>
       </tr>
-      <tr>
-        <td>icon</td>
-        <td>grund</td>
-        <td>zahl</td>
-      </tr>
-      <tr>
-        <td>icon</td>
-        <td>grund</td>
-        <td>zahl</td>
-      </tr>
-      <tr>
-        <td>icon</td>
-        <td>grund</td>
-        <td>zahl</td>
-      </tr>
-      <tr>
-        <td>icon</td>
-        <td>grund</td>
-        <td>zahl</td>
-      </tr>
+
+      @for (finances of totalAusgabenList.value(); track $index) {
+        @if ($index < 5) {
+          <tr>
+            <td>{{ finances.beschreibung }}</td>
+            <td>{{ finances.zahlungsmittel }}</td>
+            <td>{{ finances.betrag }}</td>
+          </tr>
+        }
+      }
     </table>
   </section>
 
