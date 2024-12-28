@@ -4,7 +4,6 @@ import {
   HostListener,
   inject,
   input,
-  NgModule,
   Output,
   output,
   signal,
@@ -81,6 +80,7 @@ export class FinanceSummateComponent {
     if (
       this.openSummate &&
       !this.elementRef.nativeElement.contains(event.target)
+      
     ) {
       this.openSummate.set(false);
       this.einnahmenForm.reset();

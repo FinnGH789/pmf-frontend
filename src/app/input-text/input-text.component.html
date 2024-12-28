@@ -1,12 +1,30 @@
 <div class="input-text">
+  @if (!dropdown()) {
     <input
-     type="text"
+      type="text"
       placeholder=""
-       [value]="value"
-       [disabled]="disabled" />
-    <label >{{ label() }}</label>
-  </div>
-  
-  @if(control.touched && control.hasError('required')) {
-    <div class="error">Dieses Feld ist ein Pflichtfeld</div>
+      [value]="value"
+      [disabled]="disabled"
+      (keydown)="handleKeydown($event)"
+    />
+  } @else {
+    <input
+      list="options"
+      type="text"
+      placeholder=""
+      [value]="value"
+      [disabled]="disabled"
+      (keydown)="handleKeydown($event)"
+    />
+    <datalist id="options">
+      @for (options of dropdownOptions(); track $index) {
+      <option value="{{ options }}"></option>
+    }
+    </datalist>
   }
+  <label>{{ label() }}</label>
+</div>
+
+@if (control.touched && control.hasError('required')) {
+  <div class="error">Dieses Feld ist ein Pflichtfeld</div>
+}
