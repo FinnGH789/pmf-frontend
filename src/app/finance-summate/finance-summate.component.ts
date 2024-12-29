@@ -69,6 +69,9 @@ export class FinanceSummateComponent {
 
   addEinnahmen(einnahme: Einnahmen) {
     this.addEinnahmenEvent.emit(einnahme);
+    if(!this.einnahmenForm.errors) { //TODO
+      this.einnahmenForm.valid;
+    }
   }
 
   addAusgaben(ausgabe: Ausgaben) {

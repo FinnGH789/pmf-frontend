@@ -1,4 +1,3 @@
-import { CommonModule } from '@angular/common';
 import {
   Component,
   forwardRef,
@@ -6,7 +5,6 @@ import {
   inject,
   Injector,
   input,
-  Input,
   OnInit,
 } from '@angular/core';
 import {
@@ -54,6 +52,7 @@ export class InputTextComponent implements ControlValueAccessor, OnInit {
       'ArrowLeft',
       'ArrowRight',
       'Delete',
+      '.'
     ];
 
     if (!isNumber && !isControlKey && !allowedKeys.includes(event.key)) {
