@@ -5,6 +5,7 @@ import {
   linkedSignal,
   OnInit,
   resource,
+  signal,
 } from '@angular/core';
 import { FinanceCardComponent } from '../finance-card/finance-card.component';
 import { FormsModule } from '@angular/forms';
@@ -30,6 +31,14 @@ import { AusgabenService } from 'src/services/AusgabenService/ausgaben.service';
 export class FinanceSummaryComponent {
   einnahmenService = inject(EinnahmenService);
   ausgabenService = inject(AusgabenService);
+
+  showDecimals = signal<boolean>(true);
+
+  toggleDecimals() {
+    this.totalEinnahmen.update((t) => {
+      parseFloat(t)
+    });
+  }
 
   cashBalance = computed(
     () => this.totalEinnahmen.value() - this.totalAusgaben.value(),

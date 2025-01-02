@@ -7,7 +7,11 @@
     <input type="button" value="Letzten 12 Monate" />
   </div>
   <div class="choosePeriod">
-    <input type="button" value="Wähle Zeitraum" />
+    @if(showDecimals()) {    
+    <input type="button" (click)="toggleDecimals()" value="Show Decimals" />
+  } @else {
+    <input type="button" value="Hide Decimals" />
+  }
   </div>
 </section>
 
@@ -55,8 +59,7 @@
 </div>
 
 <app-finance-overview
-[ausgabenList]="totalAusgabenList.value()"
-[einnahmenList]="totalEinnahmenList.value()"
+  [ausgabenList]="totalAusgabenList.value()"
+  [einnahmenList]="totalEinnahmenList.value()"
 >
-
 </app-finance-overview>
