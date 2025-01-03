@@ -1,4 +1,3 @@
-import { CommonModule } from '@angular/common';
 import {
   Component,
   forwardRef,
@@ -6,7 +5,6 @@ import {
   inject,
   Injector,
   input,
-  Input,
   OnInit,
 } from '@angular/core';
 import {
@@ -38,6 +36,30 @@ let index = 0;
 })
 export class InputTextComponent implements ControlValueAccessor, OnInit {
   label = input.required<string>();
+  onlyNumbers = input<boolean>(false);
+  dropdown = input<boolean>(false);
+  dropdownOptions = input<string[]>([]);
+
+  handleKeydown(event: KeyboardEvent) {
+    if (this.onlyNumbers()) {
+    const isNumber = /^\d$/.test(event.key);
+
+    const isControlKey = event.ctrlKey || event.metaKey || event.altKey;
+
+    const allowedKeys = [
+      'Backspace',
+      'Tab',
+      'ArrowLeft',
+      'ArrowRight',
+      'Delete',
+      '.'
+    ];
+
+    if (!isNumber && !isControlKey && !allowedKeys.includes(event.key)) {
+      event.preventDefault();
+    }
+  }
+  }
 
   protected control!: AbstractControl;
   protected disabled = false;

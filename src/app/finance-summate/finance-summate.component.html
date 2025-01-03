@@ -61,11 +61,19 @@
           [label]="'Betrag'"
           formControlName="betrag_einnahmen"
           [(ngModel)]="einnahme.betrag"
+          [onlyNumbers]="true"
         ></app-input-text>
         <app-input-text
           [label]="'Zahlungsmittel'"
           formControlName="zahlungsmittel_einnahmen"
           [(ngModel)]="einnahme.zahlungsmittel"
+          [dropdown]="true"
+          [dropdownOptions]="[
+            'Überweisung',
+            'Paypal',
+            'Kreditkarte',
+            'Bargeld',
+          ]"
         ></app-input-text>
       </div>
       <input
